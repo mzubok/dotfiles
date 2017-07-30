@@ -41,7 +41,6 @@ brew install screen
 
 # ack is a tool like grep, optimized for programmers
 brew install ack
-brew install ant
 # allows to create and view interactive cheatsheets on the command-line
 brew install cheat
 # commandline monitoring for containers
@@ -55,7 +54,6 @@ brew install gradle
 brew install htop
 # CLI HTTP client, user-friendly curl replacement
 brew install httpie
-brew install java
 # lightweight and flexible command-line JSON processor
 brew install jq
 brew install lua
