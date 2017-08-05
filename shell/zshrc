@@ -26,13 +26,16 @@ antigen bundles <<EOBUNDLES
     zsh-users/zsh-autosuggestions
 
     # Pure prompt
-    # mafredri/zsh-async
-    # sindresorhus/pure
+    mafredri/zsh-async
+    sindresorhus/pure
 
 EOBUNDLES
 
 # Load refined theme (ex pure)
-antigen theme refined
+# antigen theme refined
 
 # Tell antigen that you're done
 antigen apply
+
+# Configure fuck alias
+eval "$(thefuck --alias)"
