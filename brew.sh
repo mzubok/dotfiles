@@ -41,6 +41,8 @@ brew install screen
 
 # ack is a tool like grep, optimized for programmers
 brew install ack
+# Plugin manager for zsh
+brew install antigen
 # allows to create and view interactive cheatsheets on the command-line
 brew install cheat
 # commandline monitoring for containers

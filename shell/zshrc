@@ -1,0 +1,38 @@
+export TERM="xterm-256color"
+
+# Init antigen
+source /usr/local/share/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+    
+    brew
+    git
+    gradle
+    httpie
+    # ssh-agent
+    sublime
+    vault
+    
+    # Syntax highlighting bundle.
+    zsh-users/zsh-syntax-highlighting
+
+    # Extra zsh completions
+    zsh-users/zsh-completions
+
+    # Fish-like auto suggestions
+    zsh-users/zsh-autosuggestions
+
+    # Pure prompt
+    # mafredri/zsh-async
+    # sindresorhus/pure
+
+EOBUNDLES
+
+# Load refined theme (ex pure)
+antigen theme refined
+
+# Tell antigen that you're done
+antigen apply
