@@ -41,7 +41,7 @@ brew install screen
 
 # ack is a tool like grep, optimized for programmers
 brew install ack
-# Plugin manager for zsh
+# plugin manager for zsh
 brew install antigen
 # allows to create and view interactive cheatsheets on the command-line
 brew install cheat
@@ -80,7 +80,7 @@ brew install tree
 brew install wget
 brew install wifi-password
 brew install zsh
-brew install zsh-completions
+# brew install zsh-completions
 
 # brew install hub
 # brew install ponysay
