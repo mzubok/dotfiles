@@ -1,7 +1,7 @@
-[user]
-
-    name = Mikalai Zubok
-    email = mikalai.zubok@gmail.com
+# Local/private config
+[include]
+    
+    path = ~/.gitconfig.local
 
 [alias]
 
