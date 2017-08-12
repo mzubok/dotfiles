@@ -2,7 +2,6 @@
 
 rm ~/.gitconfig
 rm ~/.gitignore
-
 rm ~/.curlrc
 rm ~/.inputrc
 rm ~/.wgetrc

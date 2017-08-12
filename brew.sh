@@ -36,7 +36,8 @@ brew install gnu-sed --with-default-names
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
 brew install grep
-brew install openssh
+# macos specific 'UseKeychain' option doesn't work
+# brew install openssh
 brew install screen
 
 # ack is a tool like grep, optimized for programmers

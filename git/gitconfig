@@ -22,7 +22,7 @@
     cal = !git add -A && git commit         # Commit all changes
     cam = commit -am
     cne = commit --no-edit
-    amend = commit --amend
+    amend = commit --amend -C HEAD
     amend-all = !git add --all && git commit --amend --reuse-message=HEAD
 
     # Clone
