@@ -1,0 +1,20 @@
+# only search with case sensitivity if there is mixed case
+--smart-case
+
+# follow symlinks
+--follow
+
+# color settings
+--color-filename=white
+--color-lineno=cyan
+--color-match=magenta underline
+
+# ignore some dirs
+--ignore-dir=build
+--ignore-dir=.idea
+--ignore-dir=tmp
+--ignore-dir=log
+--ignore-dir=.tmp
+--ignore-dir=dist
+
+# ignore some files
