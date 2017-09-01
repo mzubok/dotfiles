@@ -36,3 +36,8 @@ alias reload!='. ~/.zshrc'
 
 alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
+
+# Ask to override
+alias rm='rm -i'
+alias cp='cp -i'
+alias mv='mv -i'
