@@ -30,6 +30,9 @@ alias lart='ls -1Fcart'
 alias lrt='ls -1Fcrt'
 
 alias h='history'
+alias hgrep="fc -El 0 | grep"
+alias help='man'
+alias unexport='unset'
 
 alias zshrc='$EDITOR ~/.zshrc' # Quick access to the ~/.zshrc file
 alias reload!='. ~/.zshrc'
