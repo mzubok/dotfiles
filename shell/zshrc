@@ -39,3 +39,6 @@ antigen apply
 
 # Configure fuck alias
 eval "$(thefuck --alias)"
+
+# fortune: brew install fortune ponysay
+fortune | ponysay
