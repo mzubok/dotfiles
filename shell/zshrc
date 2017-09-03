@@ -40,5 +40,8 @@ antigen apply
 # Configure fuck alias
 eval "$(thefuck --alias)"
 
+# Set Default Editor
+export EDITOR=subl
+
 # fortune: brew install fortune ponysay
 fortune | ponysay
