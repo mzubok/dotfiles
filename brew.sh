@@ -83,12 +83,30 @@ brew install wifi-password
 brew install zsh
 # brew install zsh-completions
 
+# modern replacement for 'ls'
+# brew install exa
+# like cat but displays content with syntax highlighting
+# brew install ccat
+# static analyzer for Java, C and Objective-C
+# brew install infer
+# view hosts/ports taking up the most network traffic
+# brew install jnettop
+# open client for Cisco AnyConnect VPN
+# brew install openconnect
+# parse HTML at the command-line
+# brew install pup
+# add GitHub support to git on the command-line
 # brew install hub
+# cowsay but with ponies
 # brew install ponysay
+# command-line utility for posting snippets to Slack
 # brew install slackcat
 # brew install sshpass
+# keep Mac's application settings in sync
 # brew install mackup
+# small git utilities
 # brew install git-extras
+# display an interface's bandwidth usage
 # brew install iftop
 
 # Remove outdated versions from the cellar
