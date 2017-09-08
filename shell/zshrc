@@ -1,3 +1,6 @@
+# Add `~/.bin` to the `$PATH`
+export PATH="$HOME/.bin:$PATH";
+
 export TERM="xterm-256color"
 
 # Init antigen
@@ -41,7 +44,16 @@ antigen apply
 eval "$(thefuck --alias)"
 
 # Set Default Editor
-export EDITOR=subl
+export EDITOR='subl'
+
+# Source local extra (private) settings specific to machine if it exists
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+source ~/.bin/aliases.zsh
+source ~/.bin/functions.zsh
 
 # fortune: brew install fortune ponysay
-fortune | ponysay
+# fortune | ponysay
