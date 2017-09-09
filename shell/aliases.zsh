@@ -43,12 +43,18 @@ alias grep='grep --color'
 alias sgrep='grep -R -n -H -C 5 --exclude-dir={.git,.svn,CVS} '
 
 # Ask to override
-alias rm='rm -i'
-alias cp='cp -i'
-alias mv='mv -i'
+alias rm='rm -iv'
+alias cp='cp -iv'
+alias mv='mv -iv'
 
 alias hosts='$EDITOR /etc/hosts'
 # Copy my public key to the pasteboard
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
-# localrc config
+# Localrc config
 alias localrc="if [[ -a ~/.localrc ]]; then ${EDITOR} ~/.localrc; fi"
+# Flush DNS cache
+alias flushdns="dscacheutil -flushcache"
+
+# Shortcuts
+alias x+="chmod +x"
+alias -- +x="chmod +x"

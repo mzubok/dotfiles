@@ -53,16 +53,8 @@ then
 fi
 
 source ~/.bin/aliases.zsh
+source ~/.bin/config.zsh
 source ~/.bin/functions.zsh
-
-# History
-HISTFILE=~/.zsh_history
-HISTSIZE=10000
-SAVEHIST=10000
-
-setopt inc_append_history   # Append history as commands are executed
-setopt hist_ignore_all_dups # Don't save duplicates
-unsetopt share_history      # Disable sharing history between terminals (sessions)
 
 # fortune: brew install fortune ponysay
 # fortune | ponysay
