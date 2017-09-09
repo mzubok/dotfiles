@@ -21,8 +21,9 @@ ln -s "$(pwd)/shell/wgetrc" ~/.wgetrc
 ln -s "$(pwd)/shell/zshrc" ~/.zshrc
 
 mkdir ~/.bin
-ln -s "$(pwd)/shell/aliases" ~/.bin/aliases.zsh
-ln -s "$(pwd)/shell/functions" ~/.bin/functions.zsh
+ln -s "$(pwd)/shell/aliases.zsh" ~/.bin/aliases.zsh
+ln -s "$(pwd)/shell/config.zsh" ~/.bin/config.zsh
+ln -s "$(pwd)/shell/functions.zsh" ~/.bin/functions.zsh
 
 # Install the Dracula Custom theme for iTerm
 open "$(pwd)/iterm/themes/Dracula Custom.itermcolors"
