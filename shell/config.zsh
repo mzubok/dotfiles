@@ -1,5 +1,7 @@
 #!/usr/bin/env zsh
 
+# http://zsh.sourceforge.net/Doc/Release/Options.html
+
 # History
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
