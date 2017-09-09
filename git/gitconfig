@@ -124,6 +124,10 @@
     # Misc
     publish = "!git push --set-upstream origin $(git branch-name)"
 
+    # Change permissions
+    x = "git update-index --chmod=+x $1"
+    unx = "git update-index --chmod=-x $1"
+
     # Merge GitHub pull request on top of the current branch or,
     # if a branch name is specified, on top of the specified branch
     mpr = "!f() { \
