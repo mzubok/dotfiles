@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-echo 'Removing old directories and linked files...'
+echo 'Removing old directories and symbolic links...'
 
 rm -rf ~/.bin
 
@@ -11,7 +11,7 @@ rm ~/.inputrc
 rm ~/.wgetrc
 rm ~/.zshrc
 
-echo 'Creating new symlinks...'
+echo 'Creating new symbolic links...'
 
 ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
 ln -s "$(pwd)/git/gitignore" ~/.gitignore

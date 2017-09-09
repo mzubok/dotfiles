@@ -36,77 +36,82 @@ brew install gnu-sed --with-default-names
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
 brew install grep
-# macos specific 'UseKeychain' option doesn't work
+# MacOS specific 'UseKeychain' option doesn't work
 # brew install openssh
+# Terminal multiplexer with VT100/ANSI terminal emulation
 brew install screen
 
 # ack is a tool like grep, optimized for programmers
 brew install ack
-# plugin manager for zsh
+# Plugin manager for zsh
 brew install antigen
-# allows to create and view interactive cheatsheets on the command-line
+# Allows to create and view interactive cheatsheets on the command-line
 brew install cheat
-# commandline monitoring for containers
+# Commandline monitoring for containers
 brew install ctop
-# good-looking diffs
+# Good-looking diffs
 brew install diff-so-fancy
+# Modern replacement for 'ls'
+brew install exa
 brew install git
 brew install git-lfs
 brew install gradle
-# interactive text-mode process viewer for Unix systems, it aims to be a better 'top'
+# Interactive text-mode process viewer for Unix systems, it aims to be a better 'top'
 brew install htop
 # CLI HTTP client, user-friendly curl replacement
 brew install httpie
-# lightweight and flexible command-line JSON processor
+# Lightweight and flexible command-line JSON processor
 brew install jq
 brew install lua
-# web browser in terminal
+# Web browser in terminal
 brew install lynx
 brew install midnight-commander
+# Port scanning utility
 brew install nmap
 # p7zip is a port of 7za.exe for POSIX systems like Unix, MacOS X ...
 brew install p7zip
-# pipe viewer - is a terminal-based tool for monitoring the progress of data through a pipeline
+# Pipe viewer - is a terminal-based tool for monitoring the progress of data through a pipeline
 brew install pv
+# Perl-powered file rename script with many helpful built-ins
 brew install rename
+# Prints a steam locomotive if you type sl instead of ls
 brew install sl
 # ssh-copy-id install an SSH key on a server as an authorized key
 brew install ssh-copy-id
-# a command line tool which checks a server's service on any port for the support of TLS/SSL ciphers, protocols as well as recent cryptographic flaws and more
+# A command line tool which checks a server's service on any port for the support of TLS/SSL ciphers, protocols as well as recent cryptographic flaws and more
 brew install testssl
-# magnificent app which corrects your previous console command :)
+# Magnificent app which corrects your previous console command :)
 brew install thefuck
-# a recursive directory listing command that produces a depth indented listing of files
+# A recursive directory listing command that produces a depth indented listing of files
 brew install tree
 brew install wget
 brew install wifi-password
+# Shows the current WiFi network password
 brew install zsh
 # brew install zsh-completions
 
-# modern replacement for 'ls'
-# brew install exa
-# like cat but displays content with syntax highlighting
+# Like cat but displays content with syntax highlighting
 # brew install ccat
-# static analyzer for Java, C and Objective-C
+# Static analyzer for Java, C and Objective-C
 # brew install infer
-# view hosts/ports taking up the most network traffic
+# View hosts/ports taking up the most network traffic
 # brew install jnettop
-# open client for Cisco AnyConnect VPN
+# Open client for Cisco AnyConnect VPN
 # brew install openconnect
-# parse HTML at the command-line
+# Parse HTML at the command-line
 # brew install pup
-# add GitHub support to git on the command-line
+# Add GitHub support to git on the command-line
 # brew install hub
-# cowsay but with ponies
+# Cowsay but with ponies
 # brew install ponysay
-# command-line utility for posting snippets to Slack
+# Command-line utility for posting snippets to Slack
 # brew install slackcat
 # brew install sshpass
-# keep Mac's application settings in sync
+# Keep Mac's application settings in sync
 # brew install mackup
-# small git utilities
+# Small git utilities
 # brew install git-extras
-# display an interface's bandwidth usage
+# Display an interface's bandwidth usage
 # brew install iftop
 
 # Remove outdated versions from the cellar
