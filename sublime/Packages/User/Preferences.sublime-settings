@@ -1,0 +1,19 @@
+{
+    "color_scheme": "Packages/Theme - Monokai Pro/Monokai Pro (Filter Octagon).tmTheme",
+    "font_size": 13,
+    "ignored_packages":
+    [
+        "Vintage"
+    ],
+    "theme": "Monokai Pro (Filter Octagon).sublime-theme",
+    "show_encoding": true,
+    "show_line_endings": true,
+    "open_files_in_new_window": false,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "ensure_newline_at_eof_on_save": true,
+    "highlight_line": true,
+    "highlight_modified_tabs": true,
+    "fade_fold_buttons": false,
+    "bold_folder_labels": true
+}
