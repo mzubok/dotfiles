@@ -28,7 +28,15 @@ ln -s "$(pwd)/shell/config.zsh" ~/.bin/config.zsh
 ln -s "$(pwd)/shell/functions.zsh" ~/.bin/functions.zsh
 
 # Install the Dracula Custom theme for iTerm
-# open "$(pwd)/iterm/themes/Dracula Custom.itermcolors"
+if [[ `uname` == 'Darwin' ]]; then
+    echo 'Instlling iTerm2 theme...'
+    open "$(pwd)/iterm/themes/Dracula Custom.itermcolors"
+fi
+
+if [[ `uname` == 'Darwin' ]]; then
+    echo 'Linking Sublime Text 3 settings file...'
+    link "$(pwd)/sublime/Packages/User/Preferences.sublime-settings" "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
+fi
 
 # Reload zsh settings
 # source ~/.zshrc
