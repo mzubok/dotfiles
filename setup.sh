@@ -8,6 +8,7 @@ rm ~/.gitconfig
 rm ~/.gitignore
 rm ~/.curlrc
 rm ~/.inputrc
+rm ~/.screenrc
 rm ~/.wgetrc
 rm ~/.zshrc
 
@@ -17,6 +18,7 @@ ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
 ln -s "$(pwd)/git/gitignore" ~/.gitignore
 ln -s "$(pwd)/shell/curlrc" ~/.curlrc
 ln -s "$(pwd)/shell/inputrc" ~/.inputrc
+ln -s "$(pwd)/shell/screenrc" ~/.screenrc
 ln -s "$(pwd)/shell/wgetrc" ~/.wgetrc
 ln -s "$(pwd)/shell/zshrc" ~/.zshrc
 
@@ -26,7 +28,7 @@ ln -s "$(pwd)/shell/config.zsh" ~/.bin/config.zsh
 ln -s "$(pwd)/shell/functions.zsh" ~/.bin/functions.zsh
 
 # Install the Dracula Custom theme for iTerm
-open "$(pwd)/iterm/themes/Dracula Custom.itermcolors"
+# open "$(pwd)/iterm/themes/Dracula Custom.itermcolors"
 
 # Reload zsh settings
 # source ~/.zshrc
