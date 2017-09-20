@@ -4,6 +4,7 @@ echo 'Removing old directories and symbolic links...'
 
 rm -rf ~/.bin
 
+rm ~/.ackrc
 rm ~/.gitconfig
 rm ~/.gitignore
 rm ~/.curlrc
@@ -14,6 +15,7 @@ rm ~/.zshrc
 
 echo 'Creating new symbolic links...'
 
+ln -s "$(pwd)/git/ackrc" ~/.ackrc
 ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
 ln -s "$(pwd)/git/gitignore" ~/.gitignore
 ln -s "$(pwd)/shell/curlrc" ~/.curlrc

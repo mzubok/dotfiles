@@ -13,7 +13,7 @@ apps=(
     paw
     slack
     sourcetree
-    sublime-text
+    sublime-text3
     trailer
 )
 
