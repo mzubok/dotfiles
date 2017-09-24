@@ -1,6 +1,6 @@
 # Local/private config
 [include]
-    
+
     path = ~/.gitconfig.local
 
 [alias]
@@ -227,8 +227,30 @@
 
 [difftool "sourcetree"]
 
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
+    path =
+
+[mergetool "sourcetree"]
+
+    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+    trustExitCode = true
+
+[difftool "Kaleidoscope"]
+
+    cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[mergetool "Kaleidoscope"]
+
+    cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+    trustexitcode = true
+
+[difftool]
+
+    prompt = false
+
+[mergetool]
+
+    prompt = false
 
 [help]
 
@@ -239,11 +261,6 @@
 
     # Include summaries of merged commits in newly created merge commit messages
     log = true
-
-[mergetool "sourcetree"]
-
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
 
 [push]
 
