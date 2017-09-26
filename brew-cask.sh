@@ -3,6 +3,7 @@
 # Install packages
 apps=(
     alfred
+    appcleaner
     docker
     forklift
     google-drive
@@ -10,6 +11,7 @@ apps=(
     intellij-idea
     iterm2
     java
+    microsoft-remote-desktop-beta
     paw
     slack
     sourcetree
