@@ -21,6 +21,7 @@ apps=(
     sublime-text
     taskexplorer
     trailer
+    viscosity
 )
 
 brew cask install "${apps[@]}"
