@@ -12,6 +12,7 @@ apps=(
     iterm2
     java
     microsoft-remote-desktop-beta
+    omnigraffle
     paw
     slack
     sourcetree
