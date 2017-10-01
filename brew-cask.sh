@@ -12,12 +12,14 @@ apps=(
     intellij-idea
     iterm2
     java
+    knockknock
     microsoft-remote-desktop-beta
     omnigraffle
     paw
     slack
     sourcetree
     sublime-text
+    taskexplorer
     trailer
 )
 
