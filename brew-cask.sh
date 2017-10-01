@@ -3,6 +3,7 @@
 # Install packages
 apps=(
     alfred
+    arq
     appcleaner
     docker
     forklift
