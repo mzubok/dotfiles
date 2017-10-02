@@ -5,6 +5,7 @@ apps=(
     alfred
     arq
     appcleaner
+    bartender
     docker
     forklift
     google-drive
