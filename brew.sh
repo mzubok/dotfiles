@@ -93,6 +93,10 @@ brew install wifi-password
 brew install zsh
 # brew install zsh-completions
 
+# kubernetes
+brew install kubectl
+brew install kubernetes-helm
+
 # Like cat but displays content with syntax highlighting
 # brew install ccat
 # Static analyzer for Java, C and Objective-C
