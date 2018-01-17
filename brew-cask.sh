@@ -7,6 +7,7 @@ apps=(
     appcleaner
     bartender
     docker
+    fantastical
     forklift
     google-drive
     grammarly
