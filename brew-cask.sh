@@ -15,6 +15,7 @@ apps=(
     istat-menus
     iterm2
     java
+    kaleidoscope
     knockknock
     microsoft-remote-desktop-beta
     omnigraffle
