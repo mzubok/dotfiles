@@ -6,6 +6,7 @@ apps=(
     arq
     appcleaner
     bartender
+    daisydisk
     docker
     fantastical
     forklift
