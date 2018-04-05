@@ -27,6 +27,7 @@ apps=(
     taskexplorer
     trailer
     viscosity
+    vlc
 )
 
 brew cask install "${apps[@]}"
