@@ -5,6 +5,7 @@ apps=(
     alfred
     arq
     appcleaner
+    authy
     bartender
     daisydisk
     docker
