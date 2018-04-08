@@ -19,7 +19,6 @@ apps=(
     java
     kaleidoscope
     knockknock
-    microsoft-remote-desktop-beta
     omnigraffle
     paw
     slack
