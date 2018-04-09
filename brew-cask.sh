@@ -19,6 +19,7 @@ apps=(
     java
     kaleidoscope
     knockknock
+    little-snitch
     omnigraffle
     paw
     slack
