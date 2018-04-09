@@ -12,9 +12,13 @@ antigen use oh-my-zsh
 antigen bundles <<EOBUNDLES
     
     brew
+    docker
+    docker-compose
     git
     gradle
+    helm
     httpie
+    kubectl
     # ssh-agent
     sublime
     vault
