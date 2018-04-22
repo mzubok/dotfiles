@@ -29,6 +29,7 @@ apps=(
     trailer
     viscosity
     vlc
+    zoomus
 )
 
 brew cask install "${apps[@]}"
