@@ -94,8 +94,11 @@ brew install zsh
 # brew install zsh-completions
 
 # kubernetes
-brew install kubectl
+brew install kubernetes-cli
 brew install kubernetes-helm
+
+brew install ansible
+brew install terraform
 
 # Like cat but displays content with syntax highlighting
 # brew install ccat
