@@ -52,6 +52,8 @@ brew install antigen
 brew install cheat
 # Commandline monitoring for containers
 brew install ctop
+# Commandline monitoring for Java applications
+brew install jvmtop
 # Good-looking diffs
 brew install diff-so-fancy
 # Modern replacement for 'ls'
@@ -65,7 +67,6 @@ brew install htop
 brew install httpie
 # Lightweight and flexible command-line JSON processor
 brew install jq
-brew install lua
 # Web browser in terminal
 brew install lynx
 brew install midnight-commander
