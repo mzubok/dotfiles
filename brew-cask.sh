@@ -14,7 +14,6 @@ apps=(
     google-drive
     grammarly
     intellij-idea
-    istat-menus
     iterm2
     java
     kaleidoscope
