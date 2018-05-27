@@ -97,6 +97,7 @@ brew install zsh
 # kubernetes
 brew install kubernetes-cli
 brew install kubernetes-helm
+brew install kubectx
 
 brew install ansible
 brew install terraform
