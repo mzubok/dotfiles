@@ -126,7 +126,7 @@ brew install terraform
 # Small git utilities
 # brew install git-extras
 # Display an interface's bandwidth usage
-# brew install iftop
+brew install iftop
 
 # Remove outdated versions from the cellar
 brew cleanup
