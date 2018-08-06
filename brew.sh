@@ -62,6 +62,7 @@ brew install diff-so-fancy
 brew install exa
 brew install git
 brew install git-lfs
+brew install go
 brew install gradle
 # Interactive text-mode process viewer for Unix systems, it aims to be a better 'top'
 brew install htop
