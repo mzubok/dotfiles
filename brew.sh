@@ -104,6 +104,7 @@ brew install kubectx
 
 brew install ansible
 brew install terraform
+brew install packer
 
 # Like cat but displays content with syntax highlighting
 # brew install ccat
