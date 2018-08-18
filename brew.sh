@@ -81,6 +81,8 @@ brew install p7zip
 brew install pv
 # Perl-powered file rename script with many helpful built-ins
 brew install rename
+# FInds bugs in shell scripts
+brew install shellcheck
 # Prints a steam locomotive if you type sl instead of ls
 brew install sl
 # ssh-copy-id install an SSH key on a server as an authorized key
