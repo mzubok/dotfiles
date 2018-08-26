@@ -50,6 +50,8 @@ brew install ack
 brew install ag
 # Plugin manager for zsh
 brew install antigen
+# Cloudflare's PKI and TLS toolkit
+brew install cfssl
 # Allows to create and view interactive cheatsheets on the command-line
 brew install cheat
 # Commandline monitoring for containers
