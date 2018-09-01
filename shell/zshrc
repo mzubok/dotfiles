@@ -23,6 +23,7 @@ antigen bundles <<EOBUNDLES
     # ssh-agent
     sublime
     terraform
+    thefuck
     vagrant
     vault
     
