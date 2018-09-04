@@ -133,6 +133,16 @@ brew install packer
 # brew install git-extras
 # Display an interface's bandwidth usage
 brew install iftop
+# A cat(1) clone that supports syntax highlighting for a large number of programming and markup languages
+brew install bat
+# A disk usage analyzer with an ncurses interface
+brew install ncdu
+# The TLDR pages are a community effort to simplify the beloved man pages with practical examples
+brew install tldr
+# Monitor a process and trigger a notification
+brew install noti
+# Pretty ping :)
+brew install prettyping
 
 # Remove outdated versions from the cellar
 brew cleanup
