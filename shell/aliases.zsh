@@ -74,3 +74,5 @@ alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[
 # Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 
+alias ping='prettyping --nolegend'
+alias du="ncdu --color dark -rr -x --exclude .git"
