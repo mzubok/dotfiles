@@ -143,6 +143,7 @@ brew install tldr
 brew install noti
 # Pretty ping :)
 brew install prettyping
+brew install asciinema
 
 # Remove outdated versions from the cellar
 brew cleanup
