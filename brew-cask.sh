@@ -4,9 +4,9 @@
 apps=(
     alfred
     arq
-    appcleaner
     authy
     bartender
+    cleanmymac
     daisydisk
     docker
     fantastical
