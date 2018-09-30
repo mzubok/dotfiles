@@ -27,6 +27,7 @@ apps=(
     taskexplorer
     trailer
     viscosity
+    visual-studio-code
     vlc
     zoomus
 )
