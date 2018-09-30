@@ -25,6 +25,7 @@ apps=(
     sourcetree
     sublime-text
     taskexplorer
+    tower
     trailer
     viscosity
     visual-studio-code
