@@ -26,6 +26,7 @@ antigen bundles <<EOBUNDLES
     thefuck
     vagrant
     vault
+    vscode
     
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
