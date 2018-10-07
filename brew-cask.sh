@@ -22,7 +22,6 @@ apps=(
     omnigraffle
     paw
     slack
-    sourcetree
     sublime-text
     taskexplorer
     tower

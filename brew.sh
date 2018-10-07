@@ -20,10 +20,9 @@ brew upgrade --all
 
 # Install Caskroom
 brew tap caskroom/cask
-brew install brew-cask
 brew tap caskroom/versions
 
-# Install brew-cask-upgrade - a command-line tool for upgrading every outdated app installed by Homebrew Cask. 
+# Install brew-cask-upgrade - a command-line tool for upgrading every outdated app installed by Homebrew Cask.
 brew tap buo/cask-upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
@@ -46,7 +45,7 @@ brew install screen
 
 # ack is a tool like grep, optimized for programmers
 brew install ack
-# A code-searching tool 
+# A code-searching tool
 brew install ag
 # Plugin manager for zsh
 brew install antigen
