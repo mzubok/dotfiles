@@ -143,6 +143,8 @@ brew install noti
 # Pretty ping :)
 brew install prettyping
 brew install asciinema
+# A horizontal ruler for terminal
+brew install hr
 
 # Remove outdated versions from the cellar
 brew cleanup
