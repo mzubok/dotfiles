@@ -109,14 +109,10 @@ brew install ansible
 brew install terraform
 brew install packer
 
-# Like cat but displays content with syntax highlighting
-# brew install ccat
 # Static analyzer for Java, C and Objective-C
 # brew install infer
 # View hosts/ports taking up the most network traffic
 # brew install jnettop
-# Open client for Cisco AnyConnect VPN
-# brew install openconnect
 # Parse HTML at the command-line
 # brew install pup
 # Add GitHub support to git on the command-line
