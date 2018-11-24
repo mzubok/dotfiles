@@ -19,6 +19,7 @@ apps=(
     kaleidoscope
     knockknock
     little-snitch
+    nordvpn
     omnigraffle
     paw
     slack
