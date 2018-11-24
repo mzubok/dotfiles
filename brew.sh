@@ -84,8 +84,6 @@ brew install pv
 brew install rename
 # FInds bugs in shell scripts
 brew install shellcheck
-# Prints a steam locomotive if you type sl instead of ls
-brew install sl
 # ssh-copy-id install an SSH key on a server as an authorized key
 brew install ssh-copy-id
 # A command line tool which checks a server's service on any port for the support of TLS/SSL ciphers, protocols as well as recent cryptographic flaws and more
