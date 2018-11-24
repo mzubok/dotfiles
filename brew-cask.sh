@@ -25,6 +25,7 @@ apps=(
     slack
     sublime-text
     taskexplorer
+    textual
     tower
     trailer
     viscosity
