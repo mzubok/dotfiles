@@ -115,10 +115,6 @@ brew install packer
 # brew install pup
 # Add GitHub support to git on the command-line
 # brew install hub
-# Cowsay but with ponies
-# brew install ponysay
-# Command-line utility for posting snippets to Slack
-# brew install slackcat
 # brew install sshpass
 # Keep Mac's application settings in sync
 # brew install mackup
