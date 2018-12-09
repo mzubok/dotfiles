@@ -113,8 +113,6 @@ brew install packer
 # brew install jnettop
 # Parse HTML at the command-line
 # brew install pup
-# Add GitHub support to git on the command-line
-# brew install hub
 # brew install sshpass
 # Keep Mac's application settings in sync
 # brew install mackup
