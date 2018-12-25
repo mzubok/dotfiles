@@ -107,6 +107,7 @@ brew install kubespy
 brew install ansible
 brew install terraform
 brew install packer
+brew install vault
 
 # Static analyzer for Java, C and Objective-C
 # brew install infer
