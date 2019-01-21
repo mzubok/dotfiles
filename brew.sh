@@ -82,7 +82,9 @@ brew install p7zip
 brew install pv
 # Perl-powered file rename script with many helpful built-ins
 brew install rename
-# FInds bugs in shell scripts
+# Fetches system/theme information in terminal
+brew install screenfetch
+# Finds bugs in shell scripts
 brew install shellcheck
 # ssh-copy-id install an SSH key on a server as an authorized key
 brew install ssh-copy-id
