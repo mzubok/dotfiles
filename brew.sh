@@ -130,13 +130,7 @@ brew install bat
 brew install ncdu
 # The TLDR pages are a community effort to simplify the beloved man pages with practical examples
 brew install tldr
-# Monitor a process and trigger a notification
-brew install noti
-# Pretty ping :)
-brew install prettyping
-brew install asciinema
-# A horizontal ruler for terminal
-brew install hr
+
 
 # Remove outdated versions from the cellar
 brew cleanup
