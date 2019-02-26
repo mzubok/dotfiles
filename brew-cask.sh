@@ -15,7 +15,6 @@ apps=(
     grammarly
     intellij-idea
     iterm2
-    java
     kaleidoscope
     knockknock
     little-snitch
