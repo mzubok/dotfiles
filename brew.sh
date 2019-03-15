@@ -137,6 +137,8 @@ brew install prettyping
 brew install asciinema
 # A horizontal ruler for terminal
 brew install hr
+# Dockerfile linter
+brew install hadolint
 
 # Remove outdated versions from the cellar
 brew cleanup
