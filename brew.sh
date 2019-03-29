@@ -95,8 +95,6 @@ brew install thefuck
 # A recursive directory listing command that produces a depth indented listing of files
 brew install tree
 brew install wget
-# Shows the current WiFi network password
-brew install wifi-password
 brew install zsh
 # brew install zsh-completions
 
