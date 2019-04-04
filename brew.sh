@@ -138,6 +138,8 @@ brew install asciinema
 brew install hr
 # Dockerfile linter
 brew install hadolint
+# A command line interface for Postgres with auto-completion and syntax highlighting
+brew install pgcli
 
 # Remove outdated versions from the cellar
 brew cleanup
