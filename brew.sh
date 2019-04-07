@@ -120,7 +120,7 @@ brew install vault
 # Keep Mac's application settings in sync
 # brew install mackup
 # Small git utilities
-# brew install git-extras
+brew install git-extras
 # Display an interface's bandwidth usage
 brew install iftop
 # A cat(1) clone that supports syntax highlighting for a large number of programming and markup languages
