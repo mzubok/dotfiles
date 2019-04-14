@@ -104,6 +104,7 @@ brew install kubernetes-helm
 brew install kubectx
 brew install kubespy
 brew install txn2/tap/kubefwd
+brew install helmfile
 
 brew install ansible
 brew install terraform
