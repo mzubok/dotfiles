@@ -92,6 +92,7 @@ brew install shellcheck
 brew install ssh-copy-id
 # A command line tool which checks a server's service on any port for the support of TLS/SSL ciphers, protocols as well as recent cryptographic flaws and more
 brew install testssl
+brew install tmux
 # Magnificent app which corrects your previous console command :)
 brew install thefuck
 # A recursive directory listing command that produces a depth indented listing of files
