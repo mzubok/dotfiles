@@ -73,6 +73,7 @@ brew install httpie
 brew install jq
 # Web browser in terminal
 brew install lynx
+brew install maven
 brew install midnight-commander
 # Port scanning utility
 brew install nmap
