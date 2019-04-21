@@ -47,6 +47,7 @@ brew install screen
 brew install ack
 # A code-searching tool
 brew install ag
+brew install ant
 # Plugin manager for zsh
 brew install antigen
 # Cloudflare's PKI and TLS toolkit
