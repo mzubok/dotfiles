@@ -118,7 +118,7 @@ brew install vault
 # Static analyzer for Java, C and Objective-C
 # brew install infer
 # View hosts/ports taking up the most network traffic
-# brew install jnettop
+brew install jnettop
 # Parse HTML at the command-line
 # brew install pup
 # brew install sshpass
