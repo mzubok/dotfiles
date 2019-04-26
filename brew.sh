@@ -120,7 +120,7 @@ brew install vault
 # View hosts/ports taking up the most network traffic
 brew install jnettop
 # Parse HTML at the command-line
-# brew install pup
+brew install pup
 # brew install sshpass
 # Keep Mac's application settings in sync
 # brew install mackup
