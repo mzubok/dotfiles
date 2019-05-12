@@ -106,7 +106,6 @@ brew install zsh
 brew install kubernetes-cli
 brew install kubernetes-helm
 brew install kubectx
-brew install kubespy
 brew install txn2/tap/kubefwd
 brew install helmfile
 
