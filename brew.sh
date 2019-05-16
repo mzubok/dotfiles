@@ -111,6 +111,7 @@ brew install helmfile
 
 brew install ansible
 brew install terraform
+brew install terraform-docs
 brew install packer
 brew install vault
 
