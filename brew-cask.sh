@@ -30,7 +30,6 @@ apps=(
     viscosity
     visual-studio-code
     vlc
-    zoomus
 )
 
 brew cask install "${apps[@]}"
