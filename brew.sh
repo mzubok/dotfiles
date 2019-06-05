@@ -100,7 +100,7 @@ brew install thefuck
 brew install tree
 brew install wget
 brew install zsh
-# brew install zsh-completions
+brew install zsh-completions
 
 # kubernetes
 brew install kubernetes-cli
