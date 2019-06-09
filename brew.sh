@@ -79,6 +79,7 @@ brew install maven
 brew install midnight-commander
 # Port scanning utility
 brew install nmap
+brew install nnn
 # p7zip is a port of 7za.exe for POSIX systems like Unix, MacOS X ...
 brew install p7zip
 # Pipe viewer - is a terminal-based tool for monitoring the progress of data through a pipeline
