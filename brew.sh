@@ -146,5 +146,9 @@ brew install hadolint
 # A command line interface for Postgres with auto-completion and syntax highlighting
 brew install pgcli
 
+# A Docker manager for the terminal
+brew tap moncho/dry
+brew install dry
+
 # Remove outdated versions from the cellar
 brew cleanup
