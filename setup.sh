@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+platform=$(uname);
+
+if [ platform == 'Linux' ]; then
+    source ./linux.sh
+fi
+
 echo 'Removing old directories and symbolic links...'
 
 rm -rf ~/.bin
@@ -29,8 +35,8 @@ ln -s "$(pwd)/shell/aliases.zsh" ~/.bin/aliases.zsh
 ln -s "$(pwd)/shell/config.zsh" ~/.bin/config.zsh
 ln -s "$(pwd)/shell/functions.zsh" ~/.bin/functions.zsh
 
-# Install the Dracula Custom theme for iTerm
-if [[ `uname` == 'Darwin' ]]; then
+
+if [ platform == 'Darwin' ]; then
 
     echo 'Instlling iTerm2 theme...'
     open "$(pwd)/iterm/themes/Dracula Custom.itermcolors"
