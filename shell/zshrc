@@ -20,7 +20,7 @@ antigen bundles <<EOBUNDLES
     helm
     httpie
     kubectl
-    # ssh-agent
+    ssh-agent
     sublime
     terraform
     thefuck
