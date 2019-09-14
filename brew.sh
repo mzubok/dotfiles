@@ -65,6 +65,7 @@ brew install exa
 brew install git
 brew install git-lfs
 # brew install go
+brew install gnupg
 brew install gradle
 brew install groovy
 # Interactive text-mode process viewer for Unix systems, it aims to be a better 'top'
