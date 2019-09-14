@@ -70,3 +70,7 @@ source ~/.bin/functions.zsh
 
 # fortune: brew install fortune ponysay
 # fortune | ponysay
+
+SED_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
+COREUTILS_PATH="/usr/local/opt/coreutils/libexec/gnubin"
+PATH="$SED_PATH:$COREUTILS_PATH:$PATH"
