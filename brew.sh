@@ -16,7 +16,7 @@ fi
 brew update
 
 # Upgrade any already-installed formulae
-brew upgrade --all
+brew upgrade # --all
 
 # Install Caskroom
 brew tap caskroom/cask
