@@ -68,6 +68,8 @@ source ~/.bin/aliases.zsh
 source ~/.bin/config.zsh
 source ~/.bin/functions.zsh
 
+fpath=($(brew --prefix)/share/zsh-completions $(brew --prefix)/share/zsh/site-functions $fpath)
+
 # fortune: brew install fortune ponysay
 # fortune | ponysay
 
