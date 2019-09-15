@@ -42,7 +42,7 @@ antigen bundles <<EOBUNDLES
     sindresorhus/pure
     
     # Makes directory listings more readable
-    supercrabtree/k
+    # supercrabtree/k
 
 EOBUNDLES
 
