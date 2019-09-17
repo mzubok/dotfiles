@@ -104,6 +104,10 @@ brew install wget
 brew install zsh
 brew install zsh-completions
 
+# gpg
+brew install gnupg
+brew install pinentry-mac # echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+
 # kubernetes
 brew install kubernetes-cli
 brew install kubernetes-helm
