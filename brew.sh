@@ -83,6 +83,7 @@ brew install nmap
 brew install nnn
 # p7zip is a port of 7za.exe for POSIX systems like Unix, MacOS X ...
 brew install p7zip
+brew install pipenv
 # Pipe viewer - is a terminal-based tool for monitoring the progress of data through a pipeline
 brew install pv
 # Perl-powered file rename script with many helpful built-ins

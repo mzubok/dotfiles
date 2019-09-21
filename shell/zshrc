@@ -25,6 +25,7 @@ antigen bundles <<EOBUNDLES
     helm
     httpie
     kubectl
+    pipenv
     ssh-agent
     sublime
     terraform
