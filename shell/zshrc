@@ -3,6 +3,9 @@ export PATH="$HOME/.bin:$PATH";
 
 export TERM="xterm-256color"
 
+# GCloud SDK home required for gcloud plugin
+export CLOUDSDK_HOME="/usr/local/share/gcloud-sdk"
+
 # Init antigen
 source /usr/local/share/antigen/antigen.zsh
 
@@ -16,6 +19,7 @@ antigen bundles <<EOBUNDLES
     docker-compose
     encode64
     forklift
+    gcloud
     git
     gradle
     helm
@@ -86,10 +90,3 @@ export PATH="$SED_PATH:$COREUTILS_PATH:$VSCODE_PATH:$PATH"
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-export GCLOUD_SDK_HOME="/usr/local/share/google-cloud-sdk"
-# The next line updates PATH for the Google Cloud SDK.
-[[ -s "$GCLOUD_SDK_HOME/path.zsh.inc" ]] && source "$GCLOUD_SDK_HOME/path.zsh.inc"
-# The next line enables shell command completion for gcloud.
-[[ -s "$GCLOUD_SDK_HOME/completion.zsh.inc" ]] && source "$GCLOUD_SDK_HOME/completion.zsh.inc"
- 
