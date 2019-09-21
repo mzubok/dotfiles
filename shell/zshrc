@@ -45,9 +45,6 @@ antigen bundles <<EOBUNDLES
     # Pure prompt
     mafredri/zsh-async
     sindresorhus/pure
-    
-    # Makes directory listings more readable
-    # supercrabtree/k
 
 EOBUNDLES
 
