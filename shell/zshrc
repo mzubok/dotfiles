@@ -78,10 +78,10 @@ fpath=($(brew --prefix)/share/zsh-completions $(brew --prefix)/share/zsh/site-fu
 SED_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
 # GNU Core Utilities
 COREUTILS_PATH="/usr/local/opt/coreutils/libexec/gnubin"
-# Visual Studio Code (code)
+# Update PATH for Visual Studio Code (code)
 VSCODE_PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 
-PATH="$SED_PATH:$COREUTILS_PATH:$VSCODE_PATH:$PATH"
+export PATH="$SED_PATH:$COREUTILS_PATH:$VSCODE_PATH:$PATH"
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
