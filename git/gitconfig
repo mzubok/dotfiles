@@ -49,7 +49,7 @@
     m = merge
 
     # Pull
-    up = !sh -c 'git pull --rebase --prune && git log --pretty=format:\"%Cred%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}.. | sed \"s/^/  /\"'
+    up = !sh -c 'git pull --rebase --prune && git log --color=always --pretty=format:\"%Cgreen%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}.. | sed \"s/^/  /\"'
     plom = pull origin master
     plum = pull upstream master
     preb = !git fetch upstream && git rebase upstream/master
