@@ -60,6 +60,7 @@ brew install ctop
 brew install jvmtop
 # Good-looking diffs
 brew install diff-so-fancy
+brew install direnv
 # Modern replacement for 'ls'
 brew install exa
 brew install git
