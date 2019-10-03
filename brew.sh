@@ -154,8 +154,8 @@ brew install hadolint
 brew install pgcli
 
 # A Docker manager for the terminal
-brew tap moncho/dry
-brew install dry
+# brew tap moncho/dry
+# brew install dry
 
 # Remove outdated versions from the cellar
 brew cleanup
