@@ -26,14 +26,15 @@ brew tap caskroom/versions
 brew tap buo/cask-upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
-# Don’t forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
+# Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
 brew install coreutils
 # Install some other useful utilities like `sponge`.
 brew install moreutils
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed.
 brew install findutils
 # Install GNU `sed`, overwriting the built-in `sed`.
-brew install gnu-sed # --with-default-names
+# Don't forget to add `$(brew --prefix gnu-sed)/libexec/gnubin` to `$PATH`.
+brew install gnu-sed
 
 # Install more recent versions of some macOS tools.
 brew install vim --with-override-system-vi
