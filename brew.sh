@@ -23,7 +23,7 @@ brew tap caskroom/cask
 brew tap caskroom/versions
 
 # Install brew-cask-upgrade - a command-line tool for upgrading every outdated app installed by Homebrew Cask.
-brew tap buo/cask-upgrade
+# brew tap buo/cask-upgrade
 
 # Install GNU core utilities (those that come with macOS are outdated).
 # Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`.
