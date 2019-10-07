@@ -65,7 +65,7 @@ brew install direnv
 # Modern replacement for 'ls'
 brew install exa
 brew install git
-brew install git-lfs
+# brew install git-lfs
 brew install gnupg
 brew install go
 brew install gradle
