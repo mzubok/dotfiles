@@ -158,5 +158,7 @@ brew install pgcli
 # brew tap moncho/dry
 # brew install dry
 
+brew install awscli
+
 # Remove outdated versions from the cellar
 brew cleanup
