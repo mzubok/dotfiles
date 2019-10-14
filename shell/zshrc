@@ -13,7 +13,8 @@ source /usr/local/share/antigen/antigen.zsh
 antigen use oh-my-zsh
 
 antigen bundles <<EOBUNDLES
-    
+
+    aws
     brew
     docker
     docker-compose
@@ -33,7 +34,7 @@ antigen bundles <<EOBUNDLES
     vagrant
     vault
     vscode
-    
+
     # Syntax highlighting bundle.
     zsh-users/zsh-syntax-highlighting
 
