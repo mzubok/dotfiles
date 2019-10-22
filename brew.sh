@@ -159,6 +159,8 @@ brew install pgcli
 # brew install dry
 
 brew install awscli
+brew tap weaveworks/tap
+brew install weaveworks/tap/eksctl
 
 # Remove outdated versions from the cellar
 brew cleanup
