@@ -70,6 +70,7 @@ brew install gnupg
 brew install go
 brew install gradle
 # brew install groovy
+brew install hexyl
 # Interactive text-mode process viewer for Unix systems, it aims to be a better 'top'
 brew install htop
 # CLI HTTP client, user-friendly curl replacement
