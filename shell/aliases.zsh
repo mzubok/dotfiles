@@ -58,6 +58,7 @@ alias flushdns="dscacheutil -flushcache"
 # Shortcuts
 alias x+="chmod +x"
 alias -- +x="chmod +x"
+alias unlock="chflags -R nouchg"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
