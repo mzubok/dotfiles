@@ -160,8 +160,27 @@ brew install pgcli
 # brew install dry
 
 brew install awscli
-brew tap weaveworks/tap
-brew install weaveworks/tap/eksctl
+brew install azure-cli
+# brew tap weaveworks/tap
+# brew install weaveworks/tap/eksctl
+
+# A customizable cross-platform graphical process/system monitor for the terminal,
+brew install bottom
+# Clifm is a shell-like, text-based terminal file manager that sits on the command line.
+brew install clifm
+# Dasel (short for data-selector) allows you to query and modify data structures using selector strings.
+# Comparable to jq / yq, but supports JSON, YAML, TOML, XML and CSV with zero runtime dependencies.
+brew install dasel
+brew install ffmpeg
+# A command-line JSON viewer designed for reading, exploring, and searching through JSON data.
+brew install jless
+# Command-line XML and HTML beautifier and content extractor.
+brew install xq
+# A lightweight and portable command-line YAML, JSON and XML processor.
+brew install yq
+# Zellij is a terminal workspace. It has the base functionality of a terminal multiplexer (similar to tmux or screen) 
+# but includes many built-in features that would allow users to extend it and create their own personalized environment.
+brew install zellij
 
 # Remove outdated versions from the cellar
 brew cleanup
