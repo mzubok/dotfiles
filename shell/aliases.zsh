@@ -21,8 +21,8 @@ alias du="du -h -d 1"
 alias gz='tar -zcvf'
 
 # ls, the common ones I use a lot shortened for rapid fire usage
-alias l='exa -lFh'    # size,show type,human readable
-alias la='exa -alFhg' # long list,show almost all,show type,human readable
+alias l='eza -lh'     # size,show type,human readable
+alias la='eza -alhg'  # long list,show almost all,show type,human readable
 alias lr='ls -tRFh'   # sorted by date,recursive,show type,human readable
 alias lt='ls -ltFh'   # long list,sorted by date,show type,human readable
 alias ll='ls -l'      # long list
