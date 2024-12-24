@@ -2,10 +2,6 @@
 
 platform=$(uname);
 
-if [ platform == 'Linux' ]; then
-    source ./linux.sh
-fi
-
 echo 'Removing old directories and symbolic links...'
 
 rm -rf ~/.bin
@@ -22,7 +18,7 @@ rm ~/.zshrc
 
 echo 'Creating new symbolic links...'
 
-ln -s "$(pwd)/git/ackrc" ~/.ackrc
+ln -s "$(pwd)/shell/ackrc" ~/.ackrc
 ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
 ln -s "$(pwd)/git/gitignore" ~/.gitignore
 ln -s "$(pwd)/shell/editorconfig" ~/.editorconfig
@@ -39,13 +35,8 @@ ln -s "$(pwd)/shell/functions.zsh" ~/.bin/functions.zsh
 
 
 if [ platform == 'Darwin' ]; then
-
     echo 'Instlling iTerm2 theme...'
     open "$(pwd)/iterm/themes/Dracula Custom.itermcolors"
-
-    echo 'Linking Sublime Text 3 settings file...'
-    rm "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
-    ln -s "$(pwd)/sublime/Packages/User/Preferences.sublime-settings" "~/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
 fi
 
 # Reload zsh settings

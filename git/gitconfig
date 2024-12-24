@@ -332,4 +332,9 @@
 
 [gpg]
 
-	program = /usr/local/bin/gpg
+	format = ssh
+	program = /opt/homebrew/bin/gpg
+
+[gpg "ssh"]
+
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
