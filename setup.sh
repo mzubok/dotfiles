@@ -10,6 +10,7 @@ rm ~/.gitconfig
 rm ~/.gitignore
 rm ~/.curlrc
 rm ~/.inputrc
+rm ~/.ripgreprc
 rm ~/.screenrc
 rm ~/.wgetrc
 rm ~/.zprofile
@@ -23,6 +24,7 @@ ln -s "$(pwd)/git/gitignore" ~/.gitignore
 ln -s "$(pwd)/shell/editorconfig" ~/.editorconfig
 ln -s "$(pwd)/shell/curlrc" ~/.curlrc
 ln -s "$(pwd)/shell/inputrc" ~/.inputrc
+ln -s "$(pwd)/ripgrep/ripgreprc" ~/.ripgreprc
 ln -s "$(pwd)/shell/screenrc" ~/.screenrc
 ln -s "$(pwd)/shell/wgetrc" ~/.wgetrc
 ln -s "$(pwd)/zsh/zprofile" ~/.zprofile
