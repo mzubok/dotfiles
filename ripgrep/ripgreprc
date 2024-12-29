@@ -5,7 +5,10 @@
 --max-columns=150
 --max-columns-preview
 
-# Search hidden files / directories (e.g. dotfiles) by default
+# Follow symlinks
+--follow
+
+# Search hidden files / directories
 --hidden
 
 # Using glob patterns to include/exclude files or folders
