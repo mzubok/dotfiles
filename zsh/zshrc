@@ -1,0 +1,72 @@
+# Add `~/.bin` to the `$PATH`
+export PATH="$HOME/.bin:$PATH";
+
+export TERM="xterm-256color"
+
+# Init antigen
+source $(brew --prefix)/share/antigen/antigen.zsh
+
+# Load the oh-my-zsh's library
+antigen use oh-my-zsh
+
+antigen bundles <<EOBUNDLES
+
+    brew
+    docker
+    docker-compose
+    encode64
+    git
+    httpie
+    pip
+    pipenv
+    sdk
+    ssh
+    ssh-agent
+
+    # Extra zsh completions
+    zsh-users/zsh-completions
+
+    # Fish-like auto suggestions
+    zsh-users/zsh-autosuggestions
+
+    # Syntax highlighting bundle.
+    zsh-users/zsh-syntax-highlighting
+
+EOBUNDLES
+
+# Tell antigen that you're done
+antigen apply
+
+# Configure atuin
+eval "$(atuin init zsh)"
+
+# Configure starship
+eval "$(starship init zsh)"
+
+# Set Default Editor
+export EDITOR='zed'
+
+ENABLE_CORRECTION='false'
+
+# Source local extra (private) settings specific to machine if it exists
+if [[ -a ~/.localrc ]]
+then
+  source ~/.localrc
+fi
+
+source ~/.bin/aliases.zsh
+source ~/.bin/config.zsh
+source ~/.bin/functions.zsh
+
+fpath=($(brew --prefix)/share/zsh-completions $(brew --prefix)/share/zsh/site-functions $fpath)
+
+# GNU Sed
+SED_PATH="$(brew --prefix gnu-sed)/libexec/gnubin"
+# GNU Core Utilities
+COREUTILS_PATH="$(brew --prefix coreutils)/libexec/gnubin"
+
+export PATH="$SED_PATH:$COREUTILS_PATH:$PATH"
+
+# THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
