@@ -17,7 +17,7 @@ rm ~/.zshrc
 
 echo 'Creating new symbolic links...'
 
-ln -s "$(pwd)/shell/ackrc" ~/.ackrc
+ln -s "$(pwd)/ack/ackrc" ~/.ackrc
 ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
 ln -s "$(pwd)/git/gitignore" ~/.gitignore
 ln -s "$(pwd)/shell/editorconfig" ~/.editorconfig

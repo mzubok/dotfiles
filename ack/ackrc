@@ -1,0 +1,29 @@
+# Print a break between results from different files.
+--break
+
+# Print a filename heading above each file's results.
+--heading
+
+# Only search with case sensitivity if there is mixed case
+--smart-case
+
+# Follow symlinks
+--follow
+
+# Color settings
+--color-filename=white
+--color-lineno=cyan
+--color-match=magenta underline
+
+# Ignore some dirs
+--ignore-dir=.git
+--ignore-dir=.idea
+--ignore-dir=.tmp
+--ignore-dir=build
+--ignore-dir=dist
+--ignore-dir=tmp
+--ignore-dir=target
+--ignore-dir=logs
+--ignore-dir=venv
+
+# Ignore some files
