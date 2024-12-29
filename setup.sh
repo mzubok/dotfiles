@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-platform=$(uname);
-
 echo 'Removing old directories and symbolic links...'
 
 rm -rf ~/.bin
