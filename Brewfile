@@ -14,6 +14,8 @@ brew "asciinema"
 brew "atuin"
 # A cat clone with syntax highlighting and Git integration
 brew "bat"
+# Improved top
+brew "btop"
 # CFSSL is CloudFlare's PKI/TLS swiss army knife
 brew "cfssl"
 # Install GNU core utilities (those that come with macOS are outdated)
@@ -38,8 +40,6 @@ brew "gnu-sed"
 brew "gnupg"
 # GNU grep, egrep and fgrep
 brew "grep"
-# Improved top (interactive process viewer)
-brew "htop"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
 # A lightweight and flexible command-line JSON processor
