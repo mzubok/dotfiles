@@ -42,13 +42,13 @@ brew install grep
 # MacOS specific 'UseKeychain' option doesn't work
 # brew install openssh
 # Terminal multiplexer with VT100/ANSI terminal emulation
-brew install screen
+# brew install screen
 
 # ack is a tool like grep, optimized for programmers
 brew install ack
 # A code-searching tool
 brew install ag
-brew install ant
+# brew install ant
 # Plugin manager for zsh
 brew install antigen
 # Cloudflare's PKI and TLS toolkit
@@ -56,18 +56,17 @@ brew install cfssl
 # Allows to create and view interactive cheatsheets on the command-line
 # brew install cheat
 # Commandline monitoring for containers
-brew install ctop
+# brew install ctop
 # Commandline monitoring for Java applications
-brew install jvmtop
+# brew install jvmtop
 # Good-looking diffs
 brew install diff-so-fancy
 brew install direnv
 # Modern replacement for 'ls'
-brew install exa
+brew install eza
 brew install git
 # brew install git-lfs
-brew install gnupg
-brew install go
+# brew install go
 brew install gradle
 # brew install groovy
 brew install hexyl
@@ -78,12 +77,12 @@ brew install httpie
 # Lightweight and flexible command-line JSON processor
 brew install jq
 # Web browser in terminal
-brew install lynx
+# brew install lynx
 brew install maven
 brew install midnight-commander
 # Port scanning utility
 brew install nmap
-brew install nnn
+# brew install nnn
 # p7zip is a port of 7za.exe for POSIX systems like Unix, MacOS X ...
 brew install p7zip
 brew install pipenv
@@ -178,7 +177,7 @@ brew install jless
 brew install xq
 # A lightweight and portable command-line YAML, JSON and XML processor.
 brew install yq
-# Zellij is a terminal workspace. It has the base functionality of a terminal multiplexer (similar to tmux or screen) 
+# Zellij is a terminal workspace. It has the base functionality of a terminal multiplexer (similar to tmux or screen)
 # but includes many built-in features that would allow users to extend it and create their own personalized environment.
 brew install zellij
 
