@@ -78,13 +78,6 @@ function extract() {
     fi
 }
 
-# Who is using the laptop's iSight camera?
-function camerausedby() {
-    echo "Checking to see who is using the iSight camera..."
-    usedby=$(lsof | grep -w "AppleCamera\|USBVDC\|iSight" | awk '{printf $2"\n"}' | xargs ps)
-    echo -e "Recent camera uses:\n$usedby"
-}
-
 # Show all the names (CNs and SANs) listed in the SSL certificate
 # for a given domain
 function getcertnames() {
