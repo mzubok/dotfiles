@@ -71,6 +71,7 @@
     ll = log --stat --abbrev-commit
     lc = shortlog --summary --numbered           # List contributors
     lf = log --pretty=fuller
+    lg = !git log --pretty=format:\"%C(magenta)%h%Creset -%C(red)%d%Creset %s %C(dim green)(%cr) [%an]\" --abbrev-commit -30
     latest = for-each-ref --count=10 --sort=-committerdate --format='%(committerdate:short) %(refname:short)'
 
     # Reset
