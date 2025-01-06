@@ -27,6 +27,8 @@ brew "diff-so-fancy"
 brew "eza"
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew "findutils"
+# A general-purpose command-line fuzzy finder.
+brew "fzf"
 # Distributed revision control system
 brew "git"
 # Small git utilities

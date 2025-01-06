@@ -43,6 +43,9 @@ eval "$(atuin init zsh)"
 # Configure starship
 eval "$(starship init zsh)"
 
+# Set up fzf key bindings and fuzzy completion
+eval "$(fzf --zsh)"
+
 # Set Default Editor
 export EDITOR='zed'
 

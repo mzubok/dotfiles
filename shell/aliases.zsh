@@ -86,10 +86,5 @@ zstyle -e ':completion:*:(ssh|scp|sftp|rsh|rsync):hosts' hosts 'reply=(${=${${(f
 # Start a simple HTTP server to serve files from current directory
 alias server="python3 -m http.server 8000"
 
-## Kubernetes
-
-# ServiceAccount management.
-alias kgsa='kubectl get ServiceAccount'
-
-# ConfigMap management.
-alias kgcm='kubectl get ConfigMap'
+# fzf
+alias v='fzf --preview "bat --color=always {}"'
