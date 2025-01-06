@@ -23,3 +23,10 @@
 #   Example 2: Use ".gitignore"-style highlighting for ".ignore" files
 #--map-syntax "*.ino:C++"
 #--map-syntax ".ignore:Git Ignore"
+#--map-syntax ".ignore:Git Ignore"
+--map-syntax "*.ttl:Turtle"
+
+# Configure which elements (line numbers, file headers, grid borders, Git modifications, ..)
+# to display in addition to the file contents. The argument is a comma-separated list of
+# components to display (e.g. 'numbers,changes,grid') or a pre-defined style ('full').
+--style=grid
