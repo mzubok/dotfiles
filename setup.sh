@@ -3,18 +3,32 @@
 echo 'Removing old directories and symbolic links...'
 
 rm -rf ~/.bin
+rm -f ~/.ackrc
+rm -f ~/.editorconfig
+rm -f ~/.gitconfig
+rm -f ~/.gitignore
+rm -f ~/.curlrc
+rm -f ~/.inputrc
+rm -f ~/.ripgreprc
+rm -f ~/.screenrc
+rm -f ~/.wgetrc
+rm -f ~/.zprofile
+rm -f ~/.zshrc
 
-rm ~/.ackrc
-rm ~/.editorconfig
-rm ~/.gitconfig
-rm ~/.gitignore
-rm ~/.curlrc
-rm ~/.inputrc
-rm ~/.ripgreprc
-rm ~/.screenrc
-rm ~/.wgetrc
-rm ~/.zprofile
-rm ~/.zshrc
+CONFIG_DIR=~/.config
+
+rm -f $CONFIG_DIR/atuin
+rm -f $CONFIG_DIR/ghostty
+rm -f $CONFIG_DIR/starship.toml
+rm -f $CONFIG_DIR/zed/settings.json
+
+if [ ! -d "$CONFIG_DIR" ]; then
+    # Directory does not exist, so create it
+    mkdir "$CONFIG_DIR"
+    echo "Directory $CONFIG_DIR created."
+else
+    echo "Directory $CONFIG_DIR already exists."
+fi
 
 echo 'Creating new symbolic links...'
 
@@ -29,6 +43,11 @@ ln -s "$(pwd)/shell/screenrc" ~/.screenrc
 ln -s "$(pwd)/shell/wgetrc" ~/.wgetrc
 ln -s "$(pwd)/zsh/zprofile" ~/.zprofile
 ln -s "$(pwd)/zsh/zshrc" ~/.zshrc
+
+ln -s "$(pwd)/atuin" "$CONFIG_DIR/atuin"
+ln -s "$(pwd)/ghostty" "$CONFIG_DIR/ghostty"
+ln -s "$(pwd)/starship/starship.toml" "$CONFIG_DIR/starship.toml"
+ln -s "$(pwd)/zed/settings.json" "$CONFIG_DIR/zed/settings.json"
 
 mkdir ~/.bin
 ln -s "$(pwd)/shell/aliases.zsh" ~/.bin/aliases.zsh
