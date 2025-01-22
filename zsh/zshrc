@@ -49,7 +49,10 @@ eval "$(fzf --zsh)"
 # Set Default Editor
 export EDITOR='zed'
 
-ENABLE_CORRECTION='false'
+export ENABLE_CORRECTION='false'
+
+# Update Homebrew every 24 hours
+export HOMEBREW_AUTO_UPDATE_SECS="86400"
 
 # Source local extra (private) settings specific to machine if it exists
 if [[ -a ~/.localrc ]]
