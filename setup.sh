@@ -2,59 +2,84 @@
 
 echo 'Removing old directories and symbolic links...'
 
-rm -rf ~/.bin
-rm -f ~/.ackrc
-rm -f ~/.editorconfig
-rm -f ~/.gitconfig
-rm -f ~/.gitignore
-rm -f ~/.curlrc
-rm -f ~/.inputrc
-rm -f ~/.ripgreprc
-rm -f ~/.screenrc
-rm -f ~/.wgetrc
-rm -f ~/.zprofile
-rm -f ~/.zshrc
+# Define lists of files and directories to remove
+FILES_TO_REMOVE=(
+    ~/.ackrc
+    ~/.editorconfig
+    ~/.gitconfig
+    ~/.gitignore
+    ~/.curlrc
+    ~/.inputrc
+    ~/.ripgreprc
+    ~/.screenrc
+    ~/.wgetrc
+    ~/.zprofile
+    ~/.zshrc
+)
 
-CONFIG_DIR=~/.config
+CONFIG_FILES_TO_REMOVE=(
+    ~/.config/atuin
+    ~/.config/ghostty
+    ~/.config/starship.toml
+    ~/.config/zed/settings.json
+)
 
-rm -f $CONFIG_DIR/atuin
-rm -f $CONFIG_DIR/ghostty
-rm -f $CONFIG_DIR/starship.toml
-rm -f $CONFIG_DIR/zed/settings.json
+# Remove old files safely
+for file in "${FILES_TO_REMOVE[@]}" "${CONFIG_FILES_TO_REMOVE[@]}"; do
+    [ -e "$file" ] && rm -f "$file"
+done
 
-if [ ! -d "$CONFIG_DIR" ]; then
-    # Directory does not exist, so create it
-    mkdir "$CONFIG_DIR"
-    echo "Directory $CONFIG_DIR created."
-else
-    echo "Directory $CONFIG_DIR already exists."
-fi
+# Remove ~/.bin if it exists
+[ -d ~/.bin ] && rm -rf ~/.bin
+
+# Function to ensure directories exist
+ensure_directory() {
+    if [ ! -d "$1" ]; then
+        mkdir -p "$1"
+        echo "Created directory: $1"
+    else
+        echo "Directory already exists: $1"
+    fi
+}
+
+# Ensure necessary directories exist
+ensure_directory ~/.config
+ensure_directory ~/.config/zed
+ensure_directory ~/.bin
 
 echo 'Creating new symbolic links...'
 
-ln -s "$(pwd)/ack/ackrc" ~/.ackrc
-ln -s "$(pwd)/git/gitconfig" ~/.gitconfig
-ln -s "$(pwd)/git/gitignore" ~/.gitignore
-ln -s "$(pwd)/shell/editorconfig" ~/.editorconfig
-ln -s "$(pwd)/shell/curlrc" ~/.curlrc
-ln -s "$(pwd)/shell/inputrc" ~/.inputrc
-ln -s "$(pwd)/ripgrep/ripgreprc" ~/.ripgreprc
-ln -s "$(pwd)/shell/screenrc" ~/.screenrc
-ln -s "$(pwd)/shell/wgetrc" ~/.wgetrc
-ln -s "$(pwd)/zsh/zprofile" ~/.zprofile
-ln -s "$(pwd)/zsh/zshrc" ~/.zshrc
+# Get the absolute path of the current directory
+BASE_DIR="$(pwd)"
 
-ln -s "$(pwd)/atuin" "$CONFIG_DIR/atuin"
-ln -s "$(pwd)/ghostty" "$CONFIG_DIR/ghostty"
-ln -s "$(pwd)/starship/starship.toml" "$CONFIG_DIR/starship.toml"
-ln -s "$(pwd)/zed/settings.json" "$CONFIG_DIR/zed/settings.json"
+declare -A SYMLINKS=(
+    ["$BASE_DIR/ack/ackrc"]="~/.ackrc"
+    ["$BASE_DIR/git/gitconfig"]="~/.gitconfig"
+    ["$BASE_DIR/git/gitignore"]="~/.gitignore"
+    ["$BASE_DIR/shell/editorconfig"]="~/.editorconfig"
+    ["$BASE_DIR/shell/curlrc"]="~/.curlrc"
+    ["$BASE_DIR/shell/inputrc"]="~/.inputrc"
+    ["$BASE_DIR/ripgrep/ripgreprc"]="~/.ripgreprc"
+    ["$BASE_DIR/shell/screenrc"]="~/.screenrc"
+    ["$BASE_DIR/shell/wgetrc"]="~/.wgetrc"
+    ["$BASE_DIR/zsh/zprofile"]="~/.zprofile"
+    ["$BASE_DIR/zsh/zshrc"]="~/.zshrc"
+    ["$BASE_DIR/atuin"]="~/.config/atuin"
+    ["$BASE_DIR/ghostty"]="~/.config/ghostty"
+    ["$BASE_DIR/starship/starship.toml"]="~/.config/starship.toml"
+    ["$BASE_DIR/zed/settings.json"]="~/.config/zed/settings.json"
+    ["$BASE_DIR/shell/aliases.zsh"]="~/.bin/aliases.zsh"
+    ["$BASE_DIR/shell/config.zsh"]="~/.bin/config.zsh"
+    ["$BASE_DIR/shell/functions.zsh"]="~/.bin/functions.zsh"
+)
 
-mkdir ~/.bin
-ln -s "$(pwd)/shell/aliases.zsh" ~/.bin/aliases.zsh
-ln -s "$(pwd)/shell/config.zsh" ~/.bin/config.zsh
-ln -s "$(pwd)/shell/functions.zsh" ~/.bin/functions.zsh
+# Create symlinks
+for src in "${!SYMLINKS[@]}"; do
+    dest="${SYMLINKS[$src]}"
+    if [ -L "$dest" ] || [ -e "$dest" ]; then
+        rm -f "$dest"
+    fi
+    ln -s "$(readlink -f "$src")" "$dest"
+done
 
-# Reload zsh settings
-# source ~/.zshrc
-
-echo 'Setup is done. Run `reload!` now!'
+echo "Setup is done. Run 'reload!' now!"
