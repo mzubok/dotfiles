@@ -77,8 +77,10 @@ fpath=($(brew --prefix)/share/zsh-completions $(brew --prefix)/share/zsh/site-fu
 SED_PATH="$(brew --prefix gnu-sed)/libexec/gnubin"
 # GNU Core Utilities
 COREUTILS_PATH="$(brew --prefix coreutils)/libexec/gnubin"
+# Unversioned symlinks for python, python-config, pip etc. are installed here
+PYTHON_PATH="$(brew --prefix python)/libexec/bin"
 
-export PATH="$SED_PATH:$COREUTILS_PATH:$PATH"
+export PATH="$SED_PATH:$COREUTILS_PATH:$PYTHON_PATH:$PATH"
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
