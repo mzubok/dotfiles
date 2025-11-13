@@ -26,3 +26,6 @@ macos-icon-frame = plastic
 
 # Quick Terminal
 keybind = global:cmd+grave_accent=toggle_quick_terminal
+quick-terminal-position = top
+
+custom-shader = shaders/cursor-blaze.glsl
