@@ -6,8 +6,8 @@ tap "homebrew/bundle"
 
 # A grep-like source code search tool
 brew "ack"
-# A plugin manager for zsh, inspired by oh-my-zsh and vundle
-brew "antigen"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
 # A solution for recording terminal sessions and sharing them on the web
 brew "asciinema"
 # Improved shell history for zsh, bash, fish and nushell
