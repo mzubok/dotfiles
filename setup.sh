@@ -14,6 +14,7 @@ FILES_TO_REMOVE=(
     ~/.screenrc
     ~/.wgetrc
     ~/.zprofile
+    ~/.zsh_plugins.txt
     ~/.zshrc
 )
 
@@ -58,10 +59,10 @@ BASE_DIR="$(pwd)"
 create_symlink() {
     local src="$1"
     local dest="$2"
-    
+
     # Expand tilde in destination
     dest="${dest/#\~/$HOME}"
-    
+
     if [ -L "$dest" ] || [ -e "$dest" ]; then
         rm -f "$dest"
     fi
@@ -80,6 +81,7 @@ create_symlink "$BASE_DIR/shell/screenrc" ~/.screenrc
 create_symlink "$BASE_DIR/shell/wgetrc" ~/.wgetrc
 create_symlink "$BASE_DIR/zsh/zprofile" ~/.zprofile
 create_symlink "$BASE_DIR/zsh/zshrc" ~/.zshrc
+create_symlink "$BASE_DIR/zsh/zsh_plugins.txt" ~/.zsh_plugins.txt
 create_symlink "$BASE_DIR/atuin" ~/.config/atuin
 create_symlink "$BASE_DIR/bat" ~/.config/bat
 create_symlink "$BASE_DIR/btop" ~/.config/btop
