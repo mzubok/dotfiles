@@ -23,6 +23,8 @@ brew "cfssl"
 brew "coreutils"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
+# Load/unload environment variables based on $PWD
+brew "direnv"
 # A modern alternative for ls
 brew "eza"
 # A complete, cross-platform solution to record, convert and stream audio and video
