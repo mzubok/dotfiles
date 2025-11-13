@@ -25,18 +25,22 @@ brew "coreutils"
 brew "diff-so-fancy"
 # A modern alternative for ls
 brew "eza"
+# A complete, cross-platform solution to record, convert and stream audio and video
+brew "ffmpeg"
 # Install GNU `find`, `locate`, `updatedb`, and `xargs`, `g`-prefixed
 brew "findutils"
-# A general-purpose command-line fuzzy finder.
+# A general-purpose command-line fuzzy finder
 brew "fzf"
 # Distributed revision control system
 brew "git"
 # Small git utilities
 brew "git-extras"
+# Git extension for managing large files
+brew "git-lfs"
 # A tool for detecting secrets like passwords, API keys, and tokens in git
 brew "gitleaks"
 # Install GNU `sed`, overwriting the built-in `sed`.
-# Don't forget to add `$(brew --prefix gnu-sed)/libexec/gnubin` to `$PATH`.
+# Don't forget to add `$(brew --prefix gnu-sed)/libexec/gnubin` to `$PATH`
 brew "gnu-sed"
 # GNU Pretty Good Privacy (PGP) package
 brew "gnupg"
@@ -44,20 +48,30 @@ brew "gnupg"
 brew "grep"
 # User-friendly cURL replacement (command-line HTTP client)
 brew "httpie"
+# Fast and multi-featured HTTP client
+brew "hurl"
 # A lightweight and flexible command-line JSON processor
 brew "jq"
 # Install some other useful utilities like `sponge`
 brew "moreutils"
+# Modern text editor
+brew "neovim"
 # Port scanning utility for large networks
 brew "nmap"
+# Create, run, and share large language models (LLMs) locally
+brew "ollama"
 # Pinentry for GPG on Mac
 brew "pinentry-mac"
+# PDF rendering library (required by some other tools)
+brew "poppler"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
 # Monitor data's progress through a pipe
 brew "pv"
 # A line-oriented search tool like grep and The Silver Searcher
 brew "ripgrep"
+# Fast Python linter, formatter, and type checker
+brew "ruff"
 # Static analysis and lint tool, for (ba)sh scripts
 brew "shellcheck"
 # Add a public key to a remote machine's authorized_keys file
@@ -68,10 +82,14 @@ brew "starship"
 brew "testssl"
 # To display directories as trees (with optional color/HTML output)
 brew "tree"
+# Extremely fast Python package installer and resolver, written in Rust
+brew "uv"
 # Internet file retriever
 brew "wget"
 # Command-line XML and HTML beautifier and content extractor
 brew "xq"
+# Feature-rich command-line audio/video downloader
+brew "yt-dlp"
 # The Z shell (latest)
 brew "zsh"
 # Additional completion definitions for `zsh`
