@@ -3,39 +3,14 @@ export PATH="$HOME/.bin:$PATH";
 
 export TERM="xterm-256color"
 
-# Init antigen
-source $(brew --prefix)/share/antigen/antigen.zsh
+# Change Antidote's home directory
+export ANTIDOTE_HOME=~/.cache/antidote
 
-# Load the oh-my-zsh's library
-antigen use oh-my-zsh
+# Init antidote
+source $(brew --prefix)/share/antidote/antidote.zsh
 
-antigen bundles <<EOBUNDLES
-
-    brew
-    docker
-    docker-compose
-    encode64
-    git
-    httpie
-    pip
-    pipenv
-    sdk
-    ssh
-    ssh-agent
-
-    # Extra zsh completions
-    zsh-users/zsh-completions
-
-    # Fish-like auto suggestions
-    zsh-users/zsh-autosuggestions
-
-    # Syntax highlighting bundle.
-    zsh-users/zsh-syntax-highlighting
-
-EOBUNDLES
-
-# Tell antigen that you're done
-antigen apply
+# Initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
+antidote load
 
 # Configure atuin
 eval "$(atuin init zsh)"
@@ -53,6 +28,8 @@ export ENABLE_CORRECTION='false'
 
 # Update Homebrew every 24 hours
 export HOMEBREW_AUTO_UPDATE_SECS="86400"
+# Hide Homebrew usage hints
+export HOMEBREW_NO_ENV_HINTS=1
 
 # Source local extra (private) settings specific to machine if it exists
 if [[ -a ~/.localrc ]]

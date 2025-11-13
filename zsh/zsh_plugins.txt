@@ -1,0 +1,14 @@
+#
+# .zsh_plugins.txt - antidote plugins file
+#
+
+zsh-users/zsh-completions
+zsh-users/zsh-autosuggestions
+zdharma-continuum/fast-syntax-highlighting
+
+#
+# OMZ
+#
+
+ohmyzsh/ohmyzsh path:plugins/direnv
+ohmyzsh/ohmyzsh path:plugins/extract
