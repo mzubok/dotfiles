@@ -91,5 +91,6 @@ create_symlink "$BASE_DIR/zed/settings.json" ~/.config/zed/settings.json
 create_symlink "$BASE_DIR/shell/aliases.zsh" ~/.bin/aliases.zsh
 create_symlink "$BASE_DIR/shell/config.zsh" ~/.bin/config.zsh
 create_symlink "$BASE_DIR/shell/functions.zsh" ~/.bin/functions.zsh
+create_symlink "$BASE_DIR/zed/settings.json" ~/.config/zed/settings.json
 
 echo "Setup is done. Run 'reload!' now!"
