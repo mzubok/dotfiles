@@ -19,6 +19,7 @@
 --ignore-dir=.git
 --ignore-dir=.idea
 --ignore-dir=.tmp
+--ignore-dir=.venv
 --ignore-dir=build
 --ignore-dir=dist
 --ignore-dir=tmp
