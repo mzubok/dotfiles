@@ -18,6 +18,7 @@
 # Ignore some dirs
 --ignore-dir=.git
 --ignore-dir=.idea
+--ignore-dir=.mypy_cache
 --ignore-dir=.tmp
 --ignore-dir=.venv
 --ignore-dir=build
