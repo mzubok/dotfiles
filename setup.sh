@@ -6,6 +6,7 @@ echo 'Removing old directories and symbolic links...'
 FILES_TO_REMOVE=(
     ~/.ackrc
     ~/.editorconfig
+    ~/.gitattributes
     ~/.gitconfig
     ~/.gitignore
     ~/.curlrc
@@ -88,9 +89,12 @@ create_symlink "$BASE_DIR/btop" ~/.config/btop
 create_symlink "$BASE_DIR/ghostty" ~/.config/ghostty
 create_symlink "$BASE_DIR/starship/starship.toml" ~/.config/starship.toml
 create_symlink "$BASE_DIR/zed/settings.json" ~/.config/zed/settings.json
+create_symlink "$BASE_DIR/git/gitattributes" ~/.gitattributes
 create_symlink "$BASE_DIR/shell/aliases.zsh" ~/.bin/aliases.zsh
 create_symlink "$BASE_DIR/shell/config.zsh" ~/.bin/config.zsh
 create_symlink "$BASE_DIR/shell/functions.zsh" ~/.bin/functions.zsh
-create_symlink "$BASE_DIR/zed/settings.json" ~/.config/zed/settings.json
+create_symlink "$BASE_DIR/functions/battery" ~/.bin/battery
+create_symlink "$BASE_DIR/functions/brew-why" ~/.bin/brew-why
+create_symlink "$BASE_DIR/functions/extract" ~/.bin/extract
 
 echo "Setup is done. Run 'reload!' now!"

@@ -23,13 +23,13 @@ alias gz='tar -zcvf'
 # ls, the common ones I use a lot shortened for rapid fire usage
 alias l='eza -lh'     # size,show type,human readable
 alias la='eza -alhg'  # long list,show almost all,show type,human readable
-alias lr='ls -tRFh'   # sorted by date,recursive,show type,human readable
-alias lt='ls -ltFh'   # long list,sorted by date,show type,human readable
-alias ll='ls -l'      # long list
-alias ldot='ls -ld .*'
-alias lS='ls -1FSsh'
-alias lart='ls -1Fcart'
-alias lrt='ls -1Fcrt'
+alias lr='eza -lh --sort=modified --recurse'  # sorted by date,recursive,show type,human readable
+alias lt='eza -lh --sort=modified'            # long list,sorted by date,show type,human readable
+alias ll='eza -l'                             # long list
+alias ldot='eza -ld .*'
+alias lS='eza -1 --sort=size'
+alias lart='eza -la --sort=modified --reverse'
+alias lrt='eza -l --sort=modified --reverse'
 
 alias h='history'
 alias hgrep="fc -El 0 | grep"

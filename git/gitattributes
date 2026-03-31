@@ -1,0 +1,22 @@
+# Auto-detect text files and normalise line endings
+* text=auto
+
+# Force Unix line endings for shell scripts
+*.sh text eol=lf
+*.zsh text eol=lf
+*.bash text eol=lf
+
+# Diff drivers for common formats
+*.toml text
+*.json text
+*.md text
+
+# Binary files — never diff/merge
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+
+# Shader files — text, no line ending conversion
+*.glsl text eol=lf
