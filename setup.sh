@@ -95,6 +95,5 @@ create_symlink "$BASE_DIR/shell/config.zsh" ~/.bin/config.zsh
 create_symlink "$BASE_DIR/shell/functions.zsh" ~/.bin/functions.zsh
 create_symlink "$BASE_DIR/functions/battery" ~/.bin/battery
 create_symlink "$BASE_DIR/functions/brew-why" ~/.bin/brew-why
-create_symlink "$BASE_DIR/functions/extract" ~/.bin/extract
 
 echo "Setup is done. Run 'reload!' now!"
