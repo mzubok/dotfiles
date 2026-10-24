@@ -1,7 +1,5 @@
 # vim:ft=ruby
 
-tap "homebrew/bundle"
-
 ### Packages ###
 
 # A grep-like source code search tool
@@ -18,6 +16,8 @@ brew "bat"
 brew "btop"
 # CFSSL is CloudFlare's PKI/TLS swiss army knife
 brew "cfssl"
+# Create and run Linux containers using lightweight virtual machines
+brew "container"
 # Install GNU core utilities (those that come with macOS are outdated)
 # Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`
 brew "coreutils"
@@ -56,6 +56,8 @@ brew "hurl"
 brew "jq"
 # Install some other useful utilities like `sponge`
 brew "moreutils"
+# NCurses Disk Usage
+brew "ncdu"
 # Modern text editor
 brew "neovim"
 # Port scanning utility for large networks
@@ -96,3 +98,12 @@ brew "yt-dlp"
 brew "zsh"
 # Additional completion definitions for `zsh`
 brew "zsh-completions"
+
+### Casks ###
+
+# Command-line interface for 1Password
+cask "1password-cli"
+# Terminal emulator that uses platform-native UI and GPU acceleration
+cask "ghostty"
+# Whisper dictation/transcription app
+cask "opensuperwhisper"

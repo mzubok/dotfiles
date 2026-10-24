@@ -7,6 +7,33 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  /* Duplicated key auto-commented: "agent": {
+    "inline_assistant_model": {
+      "provider": "anthropic",
+      "model": "claude-sonnet-4-5-latest"
+    },
+    "model_parameters": []
+  }, */
+  "project_panel": {
+    "dock": "right"
+  },
+  "outline_panel": {
+    "dock": "right"
+  },
+  "git_panel": {
+    "dock": "right"
+  },
+  "agent": {
+    "dock": "left",
+    "default_model": {
+      "provider": "anthropic",
+      "model": "claude-3-5-sonnet-latest"
+    },
+  },
+  "features": {
+    "edit_prediction_provider": "zed"
+  },
+  "icon_theme": "Catppuccin Macchiato",
   "ui_font_size": 16,
   "buffer_font_size": 16,
   "cursor_shape": "bar",
@@ -17,11 +44,12 @@
   },
   "collaboration_panel": {
     // Whether to show the collaboration panel button in the status bar.
+    "dock": "right",
     "button": false
   },
   "chat_panel": {
     // Whether to show the chat panel button in the status bar.
-    "button": false
+    "button": "never"
   },
   "notification_panel": {
     // Whether to show the notification panel button in the status bar.

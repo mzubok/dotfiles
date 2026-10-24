@@ -12,8 +12,12 @@ This is a macOS dotfiles repository using a custom symlink-based installation (n
 # Install Homebrew packages
 ./brew.sh
 
-# Create all symlinks (idempotent — safe to re-run)
+# Create all symlinks (idempotent — safe to re-run).
+# Real files in the way are moved to ~/.dotfiles-backup/<timestamp>/, never deleted.
 ./setup.sh
+
+# Report missing, broken or unlinked targets without changing anything
+./setup.sh --check
 
 # Apply macOS system preferences
 ./macos.sh
@@ -41,7 +45,7 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 
 1. Create a subdirectory for the tool (e.g., `newtool/`)
 2. Add the config file(s) inside it
-3. Add a `create_symlink` call in `setup.sh`
+3. Add a `"source|target"` entry to the `LINKS` array in `setup.sh`
 4. Add the package to `Brewfile` if installed via Homebrew
 
 ## Package Management
