@@ -27,15 +27,12 @@ eval "$(starship init zsh)"
 
 # Set up fzf key bindings (Ctrl-T, Alt-C) and ** fuzzy completion; Ctrl-R stays with atuin
 export FZF_CTRL_R_COMMAND=
-# Ctrl-T lists files via ripgrep (respects .gitignore and ~/.ripgreprc, includes dotfiles)
-export FZF_CTRL_T_COMMAND='rg --files --hidden'
+# Ctrl-T lists the files ack would search (skips the dirs ignored in ~/.ackrc)
+export FZF_CTRL_T_COMMAND='ack -f'
 eval "$(fzf --zsh)"
 
 # Default editor; --wait blocks until the file is closed (git commit, rebase -i, crontab -e)
 export EDITOR='zed --wait'
-
-# ripgrep only reads a config file when this is set
-export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # Update Homebrew every 24 hours
 export HOMEBREW_AUTO_UPDATE_SECS="86400"

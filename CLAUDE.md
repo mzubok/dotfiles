@@ -30,7 +30,7 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 
 | Directory | Symlink target |
 |-----------|---------------|
-| `ack/`, `git/`, `shell/`, `ripgrep/` | Files go to `~/` as dotfiles (`~/.gitconfig`, `~/.ripgreprc`, ...) |
+| `ack/`, `git/`, `shell/` | Files go to `~/` as dotfiles (`~/.ackrc`, `~/.gitconfig`, ...) |
 | `ssh/config` | `~/.ssh/config`; it includes `~/.ssh/config.d/*` for machine-specific hosts (not tracked) |
 | `ghostty/`, `bat/`, `btop/`, `atuin/` | Dirs go to `~/.config/<name>` |
 | `starship/starship.toml`, `zed/settings.json` | `~/.config/starship.toml`, `~/.config/zed/settings.json` |

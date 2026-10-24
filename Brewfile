@@ -72,8 +72,6 @@ brew "poppler"
 brew "prettyping"
 # Monitor data's progress through a pipe
 brew "pv"
-# A line-oriented search tool like grep and The Silver Searcher
-brew "ripgrep"
 # Fast Python linter, formatter, and type checker
 brew "ruff"
 # Static analysis and lint tool, for (ba)sh scripts
