@@ -36,7 +36,7 @@ alias hgrep="fc -El 0 | grep"
 alias help='man'
 alias unexport='unset'
 
-alias zshrc='$EDITOR ~/.zshrc' # Quick access to the ~/.zshrc file
+alias zshrc='${=EDITOR} ~/.zshrc' # Quick access to the ~/.zshrc file
 alias reload!='. ~/.zshrc'
 
 alias grep='grep --color'
@@ -47,13 +47,13 @@ alias rm='rm -iv'
 alias cp='cp -iv'
 alias mv='mv -iv'
 
-alias hosts='$EDITOR /etc/hosts'
+alias hosts='${=EDITOR} /etc/hosts'
 # Copy a public key from the SSH agent (1Password) to the pasteboard
 alias pubkey="ssh-add -L | fzf --select-1 --no-multi --prompt='key> ' | pbcopy && printf '=> Public key copied to pasteboard.\n'"
 # Localrc config
-alias localrc="if [[ -a ~/.localrc ]]; then ${EDITOR} ~/.localrc; fi"
+alias localrc='${=EDITOR} ~/.localrc'
 # Flush DNS cache
-alias flushdns="dscacheutil -flushcache"
+alias flushdns="sudo dscacheutil -flushcache && sudo killall -HUP mDNSResponder"
 
 # Shortcuts
 alias x+="chmod +x"
@@ -62,8 +62,8 @@ alias unlock="chflags -R nouchg"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
-# Lock the screen (when going AFK)
-alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+# Lock the screen (when going AFK): sleeps the display, password is required immediately (see macos.sh)
+alias afk="pmset displaysleepnow"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"

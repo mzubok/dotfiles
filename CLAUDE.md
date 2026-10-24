@@ -46,6 +46,15 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
    Other machine-specific files: `~/.gitconfig.local` (git identity, signing key), `~/.ssh/config.d/*`
 4. `~/.zsh_plugins.txt` (zsh/zsh_plugins.txt) — antidote plugin list
 
+## Shell Environment Gotchas
+
+- **GNU tools come first on PATH** in interactive shells: `.zshrc` prepends Homebrew's `gnu-sed` and `coreutils`
+  `gnubin` dirs on purpose, so `sed`, `ls`, `cp`, `date`, etc. are the GNU versions, and scripts started from the
+  terminal inherit that PATH. Use GNU syntax (e.g. `sed -i 's/a/b/' file`, not BSD's `sed -i '' ...`). Scripts in
+  this repo (`setup.sh`, `bootstrap.sh`, `macos.sh`) should stay portable between GNU and BSD tools.
+- **`rm`, `cp` and `mv` are aliased to `-iv`** and prompt before overwriting/deleting. In non-interactive
+  commands, use `command rm` (or `/bin/rm`) to avoid hanging on a prompt.
+
 ## Adding New Tool Configuration
 
 1. Create a subdirectory for the tool (e.g., `newtool/`)

@@ -1,5 +1,5 @@
-# Add `~/.bin` to the `$PATH`
-export PATH="$HOME/.bin:$PATH";
+# Keep PATH and fpath free of duplicates (nested shells, `reload!`)
+typeset -U path fpath
 
 # Set by `brew shellenv` in .zprofile; fall back for non-login shells
 HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
@@ -31,8 +31,8 @@ export FZF_CTRL_R_COMMAND=
 export FZF_CTRL_T_COMMAND='rg --files --hidden'
 eval "$(fzf --zsh)"
 
-# Set Default Editor
-export EDITOR='zed'
+# Default editor; --wait blocks until the file is closed (git commit, rebase -i, crontab -e)
+export EDITOR='zed --wait'
 
 # ripgrep only reads a config file when this is set
 export RIPGREP_CONFIG_PATH=~/.ripgreprc
@@ -41,12 +41,6 @@ export RIPGREP_CONFIG_PATH=~/.ripgreprc
 export HOMEBREW_AUTO_UPDATE_SECS="86400"
 # Hide Homebrew usage hints
 export HOMEBREW_NO_ENV_HINTS=1
-
-# Source local extra (private) settings specific to machine if it exists
-if [[ -a ~/.localrc ]]
-then
-  source ~/.localrc
-fi
 
 source ~/.bin/aliases.zsh
 source ~/.bin/config.zsh
@@ -64,8 +58,14 @@ path=($HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin $HOMEBREW_PREFIX/opt/coreutils
 # Unversioned symlinks for python, python-config, pip etc. (only if Homebrew Python is installed)
 [[ -d $HOMEBREW_PREFIX/opt/python/libexec/bin ]] && path=($HOMEBREW_PREFIX/opt/python/libexec/bin $path)
 
+# Own scripts first
+path=($HOME/.bin $path)
+
 # 1Password SSH Agent
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+# Machine-specific (private) settings; last so they can override anything above
+[[ -f ~/.localrc ]] && source ~/.localrc
 
 # THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
