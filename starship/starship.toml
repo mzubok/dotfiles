@@ -2,6 +2,8 @@ add_newline = true
 follow_symlinks = true
 continuation_prompt = "[∙](bright-black) "
 
+# Spacing convention: every module after $directory starts with its own space
+# and has no trailing space, so separators stay right whichever modules show up.
 format = """
 $username\
 $hostname\
@@ -11,7 +13,10 @@ $git_state\
 $git_status\
 $python\
 $java\
+$nodejs\
+$direnv\
 $cmd_duration\
+$jobs\
 $line_break\
 $sudo\
 $character"""
@@ -21,27 +26,25 @@ $status\
 $battery\
 $time"""
 
-[fill]
-symbol = ' '
-
 [directory]
+format = "[$path]($style)[$read_only]($read_only_style)"
 style = "blue"
 
 [character]
 success_symbol = "[❯](purple)"
 error_symbol = "[❯](red)"
-vimcmd_symbol = "[❮](green)"
 
 [git_branch]
-format = "[on $branch(:$remote_branch)]($style)"
+format = " [on $branch(:$remote_branch)]($style)"
 style = "bright-black"
 
 [git_state]
-format = '\([$state( $progress_current/$progress_total)]($style)\) '
+format = ' \([$state( $progress_current/$progress_total)]($style)\)'
 style = "bright-black"
 
 [git_status]
-format = "[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)"
+# `*` right after the branch when the tree is dirty, then ahead/behind and stash markers
+format = "[(*$conflicted$untracked$modified$staged$renamed$deleted)](218)( [$ahead_behind$stashed]($style))"
 style = "bright-yellow"
 ahead = "⇡"
 behind = "⇣"
@@ -53,24 +56,47 @@ renamed = "​"
 deleted = "​"
 stashed = "≡"
 
-[cmd_duration]
-format = "[$duration]($style) "
-style = "yellow"
-
 [python]
-format = '[ via ${symbol}${pyenv_prefix}(${version} )(\($virtualenv\) )]($style)'
+format = ' [via ${symbol}${pyenv_prefix}(${version})( \($virtualenv\))]($style)'
 symbol = "python "
 style = "bright-black"
 
 [java]
-format = "[ via $symbol($version )]($style)"
-style = "bright-black"
+format = " [via $symbol($version)]($style)"
 symbol = "java "
+style = "bright-black"
+
+[nodejs]
+format = " [via $symbol($version)]($style)"
+symbol = "node "
+style = "bright-black"
+
+[direnv]
+# Shown in directories with an .envrc
+disabled = false
+format = " [$symbol$loaded/$allowed]($style)"
+symbol = "direnv "
+style = "bright-black"
+
+[cmd_duration]
+format = " [$duration]($style)"
+style = "yellow"
+
+[jobs]
+# ✦ when jobs are suspended (Ctrl-Z) or running in the background; count shown from 2
+format = " [$symbol$number]($style)"
 
 [sudo]
 style = 'bold green'
 symbol = '👩‍💻 '
 disabled = false
+
+[status]
+# Exit code of the last command, only when it failed
+disabled = false
+format = "[$symbol$status]($style) "
+symbol = "✘ "
+style = "red"
 
 [time]
 disabled = false
@@ -80,8 +106,3 @@ time_format = '%T'
 [[battery.display]]
 threshold = 20
 style = "red bold"
-
-[os]
-format = "[$symbol]($style)"
-style = "bold white"
-disabled = false
