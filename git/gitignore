@@ -16,3 +16,14 @@ Thumbs.db
 
 # IDEs stuff
 .idea
+
+# Editor leftovers
+*.swp
+.vscode/
+
+# direnv cache
+.direnv/
+
+# Claude Code per-machine files
+.claude/settings.local.json
+CLAUDE.local.md

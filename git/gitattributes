@@ -1,22 +1,9 @@
-# Auto-detect text files and normalise line endings
-* text=auto
+# Global attributes, applied to every repository.
+# Line-ending rules are a per-repo decision: put them in the repo's own .gitattributes.
 
-# Force Unix line endings for shell scripts
-*.sh text eol=lf
-*.zsh text eol=lf
-*.bash text eol=lf
-
-# Diff drivers for common formats
-*.toml text
-*.json text
-*.md text
-
-# Binary files — never diff/merge
+# Binary files: never diff/merge as text
 *.png binary
 *.jpg binary
 *.jpeg binary
 *.gif binary
 *.ico binary
-
-# Shader files — text, no line ending conversion
-*.glsl text eol=lf
