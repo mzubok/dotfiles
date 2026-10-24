@@ -1,99 +1,120 @@
 #!/usr/bin/env bash
+#
+# Symlink dotfiles into place. Safe to re-run.
+#
+#   ./setup.sh          create/repair symlinks; real files are moved to a backup dir
+#   ./setup.sh --check  report missing, broken or unlinked targets without changing anything
 
-echo 'Removing old directories and symbolic links...'
+set -euo pipefail
 
-# Define lists of files and directories to remove
-FILES_TO_REMOVE=(
-    ~/.ackrc
-    ~/.editorconfig
-    ~/.gitattributes
-    ~/.gitconfig
-    ~/.gitignore
-    ~/.curlrc
-    ~/.inputrc
-    ~/.ripgreprc
-    ~/.screenrc
-    ~/.wgetrc
-    ~/.zprofile
-    ~/.zsh_plugins.txt
-    ~/.zshrc
+BASE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+BACKUP_DIR="$HOME/.dotfiles-backup/$(date +%Y%m%d-%H%M%S)"
+CHECK_ONLY=false
+[ "${1:-}" = "--check" ] && CHECK_ONLY=true
+
+# source (relative to repo) | target
+LINKS=(
+    "ack/ackrc|$HOME/.ackrc"
+    "git/gitconfig|$HOME/.gitconfig"
+    "git/gitignore|$HOME/.gitignore"
+    "git/gitattributes|$HOME/.gitattributes"
+    "shell/editorconfig|$HOME/.editorconfig"
+    "shell/curlrc|$HOME/.curlrc"
+    "shell/inputrc|$HOME/.inputrc"
+    "shell/wgetrc|$HOME/.wgetrc"
+    "ripgrep/ripgreprc|$HOME/.ripgreprc"
+    "ssh/config|$HOME/.ssh/config"
+    "zsh/zprofile|$HOME/.zprofile"
+    "zsh/zshrc|$HOME/.zshrc"
+    "zsh/zsh_plugins.txt|$HOME/.zsh_plugins.txt"
+    "atuin|$HOME/.config/atuin"
+    "bat|$HOME/.config/bat"
+    "btop|$HOME/.config/btop"
+    "ghostty|$HOME/.config/ghostty"
+    "starship/starship.toml|$HOME/.config/starship.toml"
+    "zed/settings.json|$HOME/.config/zed/settings.json"
+    "shell/aliases.zsh|$HOME/.bin/aliases.zsh"
+    "shell/config.zsh|$HOME/.bin/config.zsh"
+    "shell/functions.zsh|$HOME/.bin/functions.zsh"
+    "functions/battery|$HOME/.bin/battery"
+    "functions/brew-why|$HOME/.bin/brew-why"
 )
 
-CONFIG_FILES_TO_REMOVE=(
-    ~/.config/atuin
-    ~/.config/bat
-    ~/.config/btop
-    ~/.config/ghostty
-    ~/.config/starship.toml
-    ~/.config/zed/settings.json
-)
+problems=0
 
-# Remove old files safely
-for file in "${FILES_TO_REMOVE[@]}" "${CONFIG_FILES_TO_REMOVE[@]}"; do
-    [ -e "$file" ] && rm -f "$file"
+backup() {
+    local target="$1"
+    local dest="$BACKUP_DIR/${target#"$HOME"/}"
+    mkdir -p "$(dirname "$dest")"
+    mv "$target" "$dest"
+    echo "  backed up $target -> $dest"
+}
+
+link() {
+    local src="$BASE_DIR/$1"
+    local target="$2"
+
+    if [ "$(readlink "$target" 2>/dev/null)" = "$src" ]; then
+        return
+    fi
+
+    if $CHECK_ONLY; then
+        if [ -L "$target" ]; then
+            echo "WRONG LINK  $target -> $(readlink "$target")"
+        elif [ -e "$target" ]; then
+            echo "NOT LINKED  $target (real file or directory)"
+        else
+            echo "MISSING     $target"
+        fi
+        problems=$((problems + 1))
+        return
+    fi
+
+    if [ -L "$target" ]; then
+        rm "$target"
+    elif [ -e "$target" ]; then
+        backup "$target"
+    fi
+
+    mkdir -p "$(dirname "$target")"
+    ln -s "$src" "$target"
+    echo "linked $target"
+}
+
+# Symlinks in ~/.bin that point into this repo but whose source no longer exists
+prune_stale() {
+    local entry
+    for entry in "$HOME"/.bin/* "$HOME"/.bin/.[!.]*; do
+        [ -L "$entry" ] || continue
+        case "$(readlink "$entry")" in
+            "$BASE_DIR"/*) ;;
+            *) continue ;;
+        esac
+        [ -e "$entry" ] && continue
+        if $CHECK_ONLY; then
+            echo "STALE       $entry -> $(readlink "$entry")"
+            problems=$((problems + 1))
+        else
+            rm "$entry"
+            echo "removed stale link $entry"
+        fi
+    done
+}
+
+for pair in "${LINKS[@]}"; do
+    [ -e "$BASE_DIR/${pair%%|*}" ] || { echo "Source missing in repo: ${pair%%|*}" >&2; exit 1; }
+    link "${pair%%|*}" "${pair#*|}"
 done
+prune_stale
 
-# Remove ~/.bin if it exists
-[ -d ~/.bin ] && rm -rf ~/.bin
-
-# Function to ensure directories exist
-ensure_directory() {
-    if [ ! -d "$1" ]; then
-        mkdir -p "$1"
-        echo "Created directory: $1"
+if $CHECK_ONLY; then
+    if [ "$problems" -eq 0 ]; then
+        echo "All links OK."
     else
-        echo "Directory already exists: $1"
+        echo "$problems problem(s) found. Run ./setup.sh to fix."
+        exit 1
     fi
-}
-
-# Ensure necessary directories exist
-ensure_directory ~/.config
-ensure_directory ~/.config/zed
-ensure_directory ~/.bin
-
-echo 'Creating new symbolic links...'
-
-# Get the absolute path of the current directory
-BASE_DIR="$(pwd)"
-
-# Create symlinks using a simpler approach
-create_symlink() {
-    local src="$1"
-    local dest="$2"
-
-    # Expand tilde in destination
-    dest="${dest/#\~/$HOME}"
-
-    if [ -L "$dest" ] || [ -e "$dest" ]; then
-        rm -f "$dest"
-    fi
-    ln -s "$src" "$dest"
-}
-
-# Create all symlinks
-create_symlink "$BASE_DIR/ack/ackrc" ~/.ackrc
-create_symlink "$BASE_DIR/git/gitconfig" ~/.gitconfig
-create_symlink "$BASE_DIR/git/gitignore" ~/.gitignore
-create_symlink "$BASE_DIR/shell/editorconfig" ~/.editorconfig
-create_symlink "$BASE_DIR/shell/curlrc" ~/.curlrc
-create_symlink "$BASE_DIR/shell/inputrc" ~/.inputrc
-create_symlink "$BASE_DIR/ripgrep/ripgreprc" ~/.ripgreprc
-create_symlink "$BASE_DIR/shell/screenrc" ~/.screenrc
-create_symlink "$BASE_DIR/shell/wgetrc" ~/.wgetrc
-create_symlink "$BASE_DIR/zsh/zprofile" ~/.zprofile
-create_symlink "$BASE_DIR/zsh/zshrc" ~/.zshrc
-create_symlink "$BASE_DIR/zsh/zsh_plugins.txt" ~/.zsh_plugins.txt
-create_symlink "$BASE_DIR/atuin" ~/.config/atuin
-create_symlink "$BASE_DIR/bat" ~/.config/bat
-create_symlink "$BASE_DIR/btop" ~/.config/btop
-create_symlink "$BASE_DIR/ghostty" ~/.config/ghostty
-create_symlink "$BASE_DIR/starship/starship.toml" ~/.config/starship.toml
-create_symlink "$BASE_DIR/zed/settings.json" ~/.config/zed/settings.json
-create_symlink "$BASE_DIR/git/gitattributes" ~/.gitattributes
-create_symlink "$BASE_DIR/shell/aliases.zsh" ~/.bin/aliases.zsh
-create_symlink "$BASE_DIR/shell/config.zsh" ~/.bin/config.zsh
-create_symlink "$BASE_DIR/shell/functions.zsh" ~/.bin/functions.zsh
-create_symlink "$BASE_DIR/functions/battery" ~/.bin/battery
-create_symlink "$BASE_DIR/functions/brew-why" ~/.bin/brew-why
-
-echo "Setup is done. Run 'reload!' now!"
+else
+    [ -d "$BACKUP_DIR" ] && echo "Replaced files were saved to $BACKUP_DIR"
+    echo "Setup is done. Run 'reload!' now!"
+fi

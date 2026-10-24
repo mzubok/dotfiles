@@ -48,8 +48,8 @@ alias cp='cp -iv'
 alias mv='mv -iv'
 
 alias hosts='$EDITOR /etc/hosts'
-# Copy my public key to the pasteboard
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+# Copy a public key from the SSH agent (1Password) to the pasteboard
+alias pubkey="ssh-add -L | fzf --select-1 --no-multi --prompt='key> ' | pbcopy && printf '=> Public key copied to pasteboard.\n'"
 # Localrc config
 alias localrc="if [[ -a ~/.localrc ]]; then ${EDITOR} ~/.localrc; fi"
 # Flush DNS cache
@@ -64,19 +64,17 @@ alias unlock="chflags -R nouchg"
 alias path='echo -e ${PATH//:/\\n}'
 # Lock the screen (when going AFK)
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
-# Show active network interfaces
-alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
 
 # IP addresses
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en0"
 alias ips="ifconfig -a | grep -o 'inet6\? \(addr:\)\?\s\?\(\(\([0-9]\+\.\)\{3\}[0-9]\+\)\|[a-fA-F0-9:]\+\)' | awk '{ sub(/inet6? (addr:)? ?/, \"\"); print }'"
 
-# Get macOS Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+# Install macOS software updates, then update and upgrade Homebrew packages
 alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup'
 
 alias ping='prettyping --nolegend'
-alias du="ncdu --color dark -rr -x --exclude .git"
+alias ncdu="ncdu --color dark -rr -x --exclude .git"
 
 alias lookbusy="cat /dev/urandom | hexdump -C | grep \"34 32\""
 

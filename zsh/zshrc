@@ -1,13 +1,17 @@
 # Add `~/.bin` to the `$PATH`
 export PATH="$HOME/.bin:$PATH";
 
-export TERM="xterm-256color"
+# Set by `brew shellenv` in .zprofile; fall back for non-login shells
+HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
+
+# Homebrew completions must be in fpath before plugins run compinit
+fpath=($HOMEBREW_PREFIX/share/zsh-completions $HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 
 # Change Antidote's home directory
 export ANTIDOTE_HOME=~/.cache/antidote
 
 # Init antidote
-source $(brew --prefix)/share/antidote/antidote.zsh
+source $HOMEBREW_PREFIX/share/antidote/antidote.zsh
 
 # Initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
@@ -24,7 +28,8 @@ eval "$(fzf --zsh)"
 # Set Default Editor
 export EDITOR='zed'
 
-export ENABLE_CORRECTION='false'
+# ripgrep only reads a config file when this is set
+export RIPGREP_CONFIG_PATH=~/.ripgreprc
 
 # Update Homebrew every 24 hours
 export HOMEBREW_AUTO_UPDATE_SECS="86400"
@@ -48,16 +53,10 @@ export FZF_DEFAULT_OPTS=" \
 --color=selected-bg:#494d64 \
 --multi"
 
-fpath=($(brew --prefix)/share/zsh-completions $(brew --prefix)/share/zsh/site-functions $fpath)
-
-# GNU Sed
-SED_PATH="$(brew --prefix gnu-sed)/libexec/gnubin"
-# GNU Core Utilities
-COREUTILS_PATH="$(brew --prefix coreutils)/libexec/gnubin"
-# Unversioned symlinks for python, python-config, pip etc. are installed here
-PYTHON_PATH="$(brew --prefix python)/libexec/bin"
-
-export PATH="$SED_PATH:$COREUTILS_PATH:$PYTHON_PATH:$PATH"
+# GNU sed and coreutils without the `g` prefix
+path=($HOMEBREW_PREFIX/opt/gnu-sed/libexec/gnubin $HOMEBREW_PREFIX/opt/coreutils/libexec/gnubin $path)
+# Unversioned symlinks for python, python-config, pip etc. (only if Homebrew Python is installed)
+[[ -d $HOMEBREW_PREFIX/opt/python/libexec/bin ]] && path=($HOMEBREW_PREFIX/opt/python/libexec/bin $path)
 
 # 1Password SSH Agent
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
