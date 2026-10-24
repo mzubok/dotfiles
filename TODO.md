@@ -70,12 +70,13 @@ the personal and work machines in sync.
 
 ## 3. Cleanup
 
-- [ ] Remove `iterm/` (Ghostty is the terminal now)
-- [ ] Remove `shell/screenrc`
+- [x] Remove `iterm/` (Ghostty is the terminal now)
+- [x] Remove `shell/screenrc`
 - [x] Remove `tap "homebrew/bundle"` from Brewfile (built in now; makes `brew bundle check` fail)
-- [ ] Fold `brew.sh` into a single bootstrap script
+- [x] Fold `brew.sh` into a single bootstrap script (`bootstrap.sh`, `--macos` also runs `macos.sh`)
 - [x] Replace repeated `brew --prefix` calls in `zshrc` with `$HOMEBREW_PREFIX`
-- [ ] Trim `atuin/config.toml` to the 3 settings that are actually set
+- [x] Trim `atuin/config.toml` to the 3 settings that are actually set
+- [x] `macos.sh` quit "System Preferences", which is "System Settings" since macOS 13 (found while fixing)
 
 ## 4. Two-machine sync (personal + work)
 

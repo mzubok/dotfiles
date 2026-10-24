@@ -21,7 +21,6 @@ LINKS=(
     "shell/editorconfig|$HOME/.editorconfig"
     "shell/curlrc|$HOME/.curlrc"
     "shell/inputrc|$HOME/.inputrc"
-    "shell/screenrc|$HOME/.screenrc"
     "shell/wgetrc|$HOME/.wgetrc"
     "ripgrep/ripgreprc|$HOME/.ripgreprc"
     "ssh/config|$HOME/.ssh/config"

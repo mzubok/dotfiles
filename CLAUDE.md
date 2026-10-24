@@ -9,8 +9,9 @@ This is a macOS dotfiles repository using a custom symlink-based installation (n
 ## Setup & Installation
 
 ```bash
-# Install Homebrew packages
-./brew.sh
+# New Mac: Command Line Tools, Homebrew, Brewfile packages, then setup.sh
+# (add --macos to also run macos.sh)
+./bootstrap.sh
 
 # Create all symlinks (idempotent — safe to re-run).
 # Real files in the way are moved to ~/.dotfiles-backup/<timestamp>/, never deleted.
@@ -29,8 +30,11 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 
 | Directory | Symlink target |
 |-----------|---------------|
-| `ack/`, `git/`, `ssh/`, `shell/` | Files go to `~/` |
-| `ghostty/`, `bat/`, `btop/`, `starship/`, `atuin/`, `ripgrep/` | Dirs go to `~/.config/<name>` |
+| `ack/`, `git/`, `shell/`, `ripgrep/` | Files go to `~/` as dotfiles (`~/.gitconfig`, `~/.ripgreprc`, ...) |
+| `ssh/config` | `~/.ssh/config`; it includes `~/.ssh/config.d/*` for machine-specific hosts (not tracked) |
+| `ghostty/`, `bat/`, `btop/`, `atuin/` | Dirs go to `~/.config/<name>` |
+| `starship/starship.toml`, `zed/settings.json` | `~/.config/starship.toml`, `~/.config/zed/settings.json` |
+| `functions/` | Executables symlinked to `~/.bin/` (on `PATH`) |
 | `shell/aliases.zsh`, `shell/functions.zsh`, `shell/config.zsh` | Symlinked to `~/.bin/` and sourced by `.zshrc` |
 | `zsh/zshrc`, `zsh/zprofile`, `zsh/zsh_plugins.txt` | Symlinked to `~/` |
 
@@ -38,7 +42,8 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 
 1. `~/.zprofile` (zsh/zprofile) — Homebrew PATH, JetBrains Toolbox
 2. `~/.zshrc` (zsh/zshrc) — loads antidote plugins, atuin, starship, fzf, then sources `~/.bin/{aliases,config,functions}.zsh`
-3. `~/.localrc` — machine-specific private config (not tracked, sourced if present)
+3. `~/.localrc` — machine-specific private config (not tracked, sourced if present).
+   Other machine-specific files: `~/.gitconfig.local` (git identity, signing key), `~/.ssh/config.d/*`
 4. `~/.zsh_plugins.txt` (zsh/zsh_plugins.txt) — antidote plugin list
 
 ## Adding New Tool Configuration
