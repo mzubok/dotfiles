@@ -45,6 +45,10 @@
     df = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
     # `git di $number` shows the diff between the state `$number` revisions ago and the current state
     di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+    # Structural diffs with difftastic (understands syntax, ignores pure reformatting)
+    difft = -c diff.external=difft diff
+    dlog = -c diff.external=difft log -p --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
 
     # Merge
     m = merge

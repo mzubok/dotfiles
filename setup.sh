@@ -31,6 +31,7 @@ LINKS=(
     "ghostty|$HOME/.config/ghostty"
     "starship/starship.toml|$HOME/.config/starship.toml"
     "zed/settings.json|$HOME/.config/zed/settings.json"
+    "claude/settings.json|$HOME/.claude/settings.json"
     "shell/aliases.zsh|$HOME/.bin/aliases.zsh"
     "shell/config.zsh|$HOME/.bin/config.zsh"
     "shell/functions.zsh|$HOME/.bin/functions.zsh"

@@ -36,6 +36,9 @@ brew bundle --file="$BASE_DIR/Brewfile"
 echo "Linking dotfiles..."
 "$BASE_DIR/setup.sh"
 
+echo "Installing git hooks for this repo..."
+(cd "$BASE_DIR" && lefthook install)
+
 if $APPLY_MACOS; then
     echo "Applying macOS defaults..."
     "$BASE_DIR/macos.sh"

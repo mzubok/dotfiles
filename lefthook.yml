@@ -1,0 +1,12 @@
+# Git hooks for this repo, managed by lefthook.
+# `lefthook install` sets them up (bootstrap.sh runs it).
+
+pre-commit:
+  parallel: true
+  jobs:
+    - name: gitleaks
+      run: gitleaks git --pre-commit --staged --redact --no-banner
+
+    - name: shellcheck
+      glob: "{*.sh,functions/*}"
+      run: shellcheck {staged_files}

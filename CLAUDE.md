@@ -35,6 +35,7 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 | `ghostty/`, `bat/`, `btop/`, `atuin/` | Dirs go to `~/.config/<name>` |
 | `starship/starship.toml`, `zed/settings.json` | `~/.config/starship.toml`, `~/.config/zed/settings.json` |
 | `functions/` | Executables symlinked to `~/.bin/` (on `PATH`) |
+| `claude/settings.json` | `~/.claude/settings.json` (plugins, marketplaces, model, theme). `settings.local.json` (permission approvals) and `skills/` (managed by installers and claude.ai sync) stay untracked |
 | `shell/aliases.zsh`, `shell/functions.zsh`, `shell/config.zsh` | Symlinked to `~/.bin/` and sourced by `.zshrc` |
 | `zsh/zshrc`, `zsh/zprofile`, `zsh/zsh_plugins.txt` | Symlinked to `~/` |
 
@@ -54,6 +55,12 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
   this repo (`setup.sh`, `bootstrap.sh`, `macos.sh`) should stay portable between GNU and BSD tools.
 - **`rm`, `cp` and `mv` are aliased to `-iv`** and prompt before overwriting/deleting. In non-interactive
   commands, use `command rm` (or `/bin/rm`) to avoid hanging on a prompt.
+
+## Git Hooks
+
+`lefthook.yml` defines a pre-commit hook: gitleaks on staged changes and shellcheck on `*.sh` and `functions/*`.
+`bootstrap.sh` runs `lefthook install`; on an existing clone run it once by hand. Commits made through an agent
+go through the same hook.
 
 ## Adding New Tool Configuration
 
