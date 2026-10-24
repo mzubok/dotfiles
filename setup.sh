@@ -24,6 +24,7 @@ LINKS=(
     "shell/screenrc|$HOME/.screenrc"
     "shell/wgetrc|$HOME/.wgetrc"
     "ripgrep/ripgreprc|$HOME/.ripgreprc"
+    "ssh/config|$HOME/.ssh/config"
     "zsh/zprofile|$HOME/.zprofile"
     "zsh/zshrc|$HOME/.zshrc"
     "zsh/zsh_plugins.txt|$HOME/.zsh_plugins.txt"

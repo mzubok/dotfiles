@@ -13,14 +13,14 @@ function fs() {
         local arg=-sh;
     fi
     if [[ -n "$@" ]]; then
-        du $arg -- "$@";
+        command du $arg -- "$@";
     else
-        du $arg .[^.]* ./*;
+        command du $arg .[^.]* ./*;
     fi;
 }
 
 # Get gzipped size
-function gz() {
+function gzsize() {
     echo "orig size    (bytes): "
     cat "$1" | wc -c
     echo "gzipped size (bytes): "
@@ -39,43 +39,6 @@ function whois() {
     # this is the best whois server
     # strip extra fluff
     /usr/bin/whois -h whois.internic.net $domain | sed '/NOTICE:/q'
-}
-
-# Extract archives - use: extract <file>
-# Based on http://dotfiles.org/~pseup/.bashrc
-function extract() {
-    if [ -f "$1" ] ; then
-        local filename=$(basename "$1")
-        local foldername="${filename%%.*}"
-        local fullpath=`perl -e 'use Cwd "abs_path";print abs_path(shift)' "$1"`
-        local didfolderexist=false
-        if [ -d "$foldername" ]; then
-            didfolderexist=true
-            read -p "$foldername already exists, do you want to overwrite it? (y/n) " -n 1
-            echo
-            if [[ $REPLY =~ ^[Nn]$ ]]; then
-                return
-            fi
-        fi
-        mkdir -p "$foldername" && cd "$foldername"
-        case $1 in
-            *.tar.bz2) tar xjf "$fullpath" ;;
-            *.tar.gz) tar xzf "$fullpath" ;;
-            *.tar.xz) tar Jxvf "$fullpath" ;;
-            *.tar.Z) tar xzf "$fullpath" ;;
-            *.tar) tar xf "$fullpath" ;;
-            *.taz) tar xzf "$fullpath" ;;
-            *.tb2) tar xjf "$fullpath" ;;
-            *.tbz) tar xjf "$fullpath" ;;
-            *.tbz2) tar xjf "$fullpath" ;;
-            *.tgz) tar xzf "$fullpath" ;;
-            *.txz) tar Jxvf "$fullpath" ;;
-            *.zip) unzip "$fullpath" ;;
-            *) echo "'$1' cannot be extracted via extract()" && cd .. && ! $didfolderexist && rm -r "$foldername" ;;
-        esac
-    else
-        echo "'$1' is not a valid file"
-    fi
 }
 
 # Show all the names (CNs and SANs) listed in the SSL certificate
@@ -110,6 +73,14 @@ function getcertnames() {
         echo "ERROR: Certificate not found.";
         return 1;
     fi;
+}
+
+# Show active network interfaces
+function ifactive() {
+    local iface
+    for iface in $(ifconfig -l); do
+        ifconfig "$iface" | grep -q 'status: active' && ifconfig "$iface"
+    done
 }
 
 killport() {

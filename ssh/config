@@ -1,2 +1,6 @@
+# Machine-specific hosts live in ~/.ssh/config.d/ (not tracked).
+# Included first so their settings win over the defaults below.
+Include ~/.ssh/config.d/*
+
 Host *
 	IdentityAgent "~/Library/Group Containers/2BUA8C4S2C.com.1password/t/agent.sock"

@@ -13,8 +13,15 @@
     # Branch
     br = branch
     branch-name = rev-parse --abbrev-ref HEAD
-    branch-diff = diff master...HEAD
-    branch-files = "!git diff master...HEAD --name-status | sed '/^D/d ; s/^.\\s\\+//'"
+    # Default branch of a remote (origin unless given): uses remote HEAD, falls back to main/master
+    default-branch = "!f() { \
+        r=\"${1:-origin}\"; \
+        b=$(git symbolic-ref --quiet --short \"refs/remotes/$r/HEAD\" 2>/dev/null) && { echo \"${b#$r/}\"; return; }; \
+        for b in main master; do git show-ref --verify --quiet \"refs/remotes/$r/$b\" && { echo $b; return; }; done; \
+        echo main; \
+    }; f"
+    branch-diff = !git diff $(git default-branch)...HEAD
+    branch-files = "!git diff $(git default-branch)...HEAD --name-status | sed '/^D/d ; s/^.\\s\\+//'"
 
     # Commit
     c = commit
@@ -49,13 +56,13 @@
 
     # Pull
     up = !sh -c 'git pull --rebase --prune && git log --color=always --pretty=format:\"%Cgreen%ae %Creset- %C(yellow)%s %Creset(%ar)\" HEAD@{1}.. | sed \"s/^/  /\"'
-    plom = pull origin master
-    plum = pull upstream master
-    preb = !git fetch upstream && git rebase upstream/master
+    plom = !git pull origin $(git default-branch)
+    plum = !git pull upstream $(git default-branch upstream)
+    preb = !git fetch upstream && git rebase upstream/$(git default-branch upstream)
 
     # Push
     p = push
-    pom = push origin master
+    pom = !git push origin $(git default-branch)
     poh = push origin head
 
     # Stash
@@ -76,7 +83,6 @@
     # Reset
     unstage = reset HEAD --                      # Mixed reset (affects HEAD and Index)
     undo = reset --soft HEAD~1                   # Undo last commit (affects HEAD only)
-    reset = reset --hard HEAD~1                  # Remove last commit (from HEAD, Index and Working Dir)
     scrub = !git reset --hard && git clean -fd
 
     # Switch to a branch, creating it if necessary
@@ -125,8 +131,8 @@
     publish = "!git push --set-upstream origin $(git branch-name)"
 
     # Change permissions
-    x = "git update-index --chmod=+x $1"
-    unx = "git update-index --chmod=-x $1"
+    x = update-index --chmod=+x
+    unx = update-index --chmod=-x
 
     # Merge GitHub pull request on top of the current branch or,
     # if a branch name is specified, on top of the specified branch
@@ -209,8 +215,7 @@
 
 [commit]
 
-    # https://help.github.com/articles/signing-commits-using-gpg/
-    # echo "pinentry-program /usr/local/bin/pinentry-mac" >> ~/.gnupg/gpg-agent.conf
+    # Signed with an SSH key via 1Password (see [gpg] below); key is set in ~/.gitconfig.local
     gpgsign = true
 
 [diff]
@@ -226,16 +231,6 @@
 
     # Use `hexdump` to diff binary files
     textconv = hexdump -v -C
-
-[difftool "sourcetree"]
-
-    cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-    path =
-
-[mergetool "sourcetree"]
-
-    cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-    trustExitCode = true
 
 [difftool "Kaleidoscope"]
 
@@ -312,7 +307,7 @@
     pushInsteadOf = "git://github.com/"
     pushInsteadOf = "https://github.com/"
 
-[url "git://github.com/"]
+[url "https://github.com/"]
 
     insteadOf = "github:"
 
@@ -323,7 +318,7 @@
     pushInsteadOf = "git://gist.github.com/"
     pushInsteadOf = "https://gist.github.com/"
 
-[url "git://gist.github.com/"]
+[url "https://gist.github.com/"]
 
     insteadOf = "gist:"
 
@@ -336,7 +331,6 @@
 [gpg]
 
 	format = ssh
-	program = /opt/homebrew/bin/gpg
 
 [gpg "ssh"]
 

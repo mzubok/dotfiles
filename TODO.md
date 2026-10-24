@@ -3,7 +3,7 @@
 Review findings from 2026-10-24. Goal: simple setup of new MacBooks and keeping
 the personal and work machines in sync.
 
-## 1. Machine drift (personal Mac, verified 2026-10-24)
+## 1. Machine drift (Mac with hostname `WorkBook`, verified 2026-10-24)
 
 - [x] `~/.ackrc` is a broken symlink → points to `shell/ackrc`, file now lives in `ack/ackrc`
 - [x] `~/.ripgreprc` and `~/.gitattributes` are missing
@@ -22,9 +22,9 @@ the personal and work machines in sync.
 - [ ] Apps installed outside Homebrew aren't tracked: 1Password, Zed, Raycast, Docker,
       Kaleidoscope, Tower, Things, aerospace, Protégé, etc. Do this with the Brewfile split
       in section 4; adopt existing installs with `brew install --cask --adopt`.
-- [ ] Run `./setup.sh --check` on the work Mac and fix its drift the same way
+- [ ] Run `./setup.sh --check` on the other Mac and fix its drift the same way
       (pull newer live configs into the repo first)
-- [ ] `~/.ssh/config` is still a local file; handle with the SSH `Include` item in section 4
+- [x] `~/.ssh/config` is still a local file; now linked, local hosts moved to `~/.ssh/config.d/local`
 - [ ] Homebrew warns about a circular dependency between `libtiff` and `webp` (stale keg data);
       fix with `brew uninstall --ignore-dependencies --force libtiff webp && brew install libtiff webp`
 
@@ -36,36 +36,37 @@ the personal and work machines in sync.
       files to `~/.dotfiles-backup/<date>/` instead.
 - [x] `BASE_DIR="$(pwd)"` breaks when run from another directory. Use
       `cd "$(dirname "$0")"` or `BASE_DIR="$(cd "$(dirname "$0")" && pwd)"`.
-- [ ] `ssh/config` is never linked.
+- [x] `ssh/config` is never linked.
 - [x] Add a `--check` mode that reports missing, broken or non-symlinked targets.
 
 ### Shell
-- [ ] `~/.ripgreprc` is ignored: set `export RIPGREP_CONFIG_PATH=~/.ripgreprc`
-- [ ] `export TERM="xterm-256color"` in `zshrc` overrides Ghostty's `xterm-ghostty`; remove it
-- [ ] `du` is aliased twice (`aliases.zsh` lines 15 and 77), and aliasing it to ncdu breaks `fs()`
-- [ ] `gz` is both an alias and a function; the alias shadows the function
-- [ ] `extract()` still lives in `functions.zsh` and duplicates the OMZ `extract` plugin
+- [x] `~/.ripgreprc` is ignored: set `export RIPGREP_CONFIG_PATH=~/.ripgreprc`
+- [x] `export TERM="xterm-256color"` in `zshrc` overrides Ghostty's `xterm-ghostty`; remove it
+- [x] (`du` stays real `du -h -d 1`; ncdu flags moved to an `ncdu` alias) `du` is aliased twice (`aliases.zsh` lines 15 and 77), and aliasing it to ncdu breaks `fs()`
+- [x] `gz` is both an alias and a function; the alias shadows the function (function renamed to `gzsize`)
+- [x] `extract()` still lives in `functions.zsh` and duplicates the OMZ `extract` plugin
       (commit `f3f92f2` only removed `functions/extract`)
-- [ ] `pubkey` copies `~/.ssh/id_rsa.pub`, which is stale with 1Password + ed25519
-- [ ] `ifactive` needs `pcregrep` (not installed); `du` needs `ncdu` (not in Brewfile)
-- [ ] `PYTHON_PATH` uses `brew --prefix python`, which isn't in Brewfile (uv is used instead)
-- [ ] `setopt CORRECT` conflicts with `ENABLE_CORRECTION='false'`, an oh-my-zsh variable
+- [x] `pubkey` copies `~/.ssh/id_rsa.pub`, which is stale with 1Password + ed25519
+- [x] (rewritten as a function without `pcregrep`) `ifactive` needs `pcregrep` (not installed); `du` needs `ncdu` (not in Brewfile)
+- [x] `PYTHON_PATH` uses `brew --prefix python`, which isn't in Brewfile (uv is used instead)
+- [x] (correction turned off) `setopt CORRECT` conflicts with `ENABLE_CORRECTION='false'`, an oh-my-zsh variable
       that does nothing here; pick one
-- [ ] History: 10k cap and `SHARE_HISTORY` off while atuin runs. Let atuin own history
+- [x] History: 10k cap and `SHARE_HISTORY` off while atuin runs. Let atuin own history
       and keep the zsh settings minimal.
 
 ### Git
-- [ ] Remove the `reset = reset --hard HEAD~1` alias (it shadows a built-in command)
-- [ ] `master` is hard-coded in `branch-diff`, `branch-files`, `plom`, `plum`, `preb`, `pom`;
+- [x] Remove the `reset = reset --hard HEAD~1` alias (it shadows a built-in command)
+- [x] `master` is hard-coded in `branch-diff`, `branch-files`, `plom`, `plum`, `preb`, `pom`;
       make them detect the default branch (`git symbolic-ref refs/remotes/origin/HEAD`)
-- [ ] `[gpg] program = /opt/homebrew/bin/gpg` is unused with `format = ssh`; GPG comment
+- [x] `[gpg] program = /opt/homebrew/bin/gpg` is unused with `format = ssh`; GPG comment
       above `gpgsign` is stale
-- [ ] `git://github.com` URL rewrites are dead (GitHub dropped `git://` in 2022)
-- [ ] Remove the SourceTree difftool/mergetool sections
+- [x] `git://github.com` URL rewrites are dead (GitHub dropped `git://` in 2022)
+- [x] Remove the SourceTree difftool/mergetool sections
+- [x] `x` / `unx` aliases ran `git git update-index ...` (found while fixing)
 
 ### Misc configs
-- [ ] `curlrc` / `wgetrc` disguise as IE9 on Windows 7; drop the fake user-agent
-- [ ] `wgetrc`: reconsider `robots = off` and `server_response = on` as defaults
+- [x] `curlrc` / `wgetrc` disguise as IE9 on Windows 7; drop the fake user-agent
+- [x] (both back to wget defaults) `wgetrc`: reconsider `robots = off` and `server_response = on` as defaults
 
 ## 3. Cleanup
 
@@ -73,7 +74,7 @@ the personal and work machines in sync.
 - [ ] Remove `shell/screenrc`
 - [x] Remove `tap "homebrew/bundle"` from Brewfile (built in now; makes `brew bundle check` fail)
 - [ ] Fold `brew.sh` into a single bootstrap script
-- [ ] Replace repeated `brew --prefix` calls in `zshrc` with `$HOMEBREW_PREFIX`
+- [x] Replace repeated `brew --prefix` calls in `zshrc` with `$HOMEBREW_PREFIX`
 - [ ] Trim `atuin/config.toml` to the 3 settings that are actually set
 
 ## 4. Two-machine sync (personal + work)
@@ -86,7 +87,7 @@ the personal and work machines in sync.
 - [ ] Git identity per directory:
       `[includeIf "gitdir:~/Projects/Work/"] path = ~/.gitconfig.work`
       (the EPAM email ended up on commit `f3f92f2` in this personal repo)
-- [ ] SSH: shared `ssh/config` with `Include ~/.ssh/config.d/*` at the top and `Host *` last;
+- [x] SSH: shared `ssh/config` with `Include ~/.ssh/config.d/*` at the top and `Host *` last;
       machine-specific hosts stay in local `config.d/` files
 - [ ] Turn on atuin sync between both Macs (`atuin register` / `atuin login`)
 - [ ] Track `~/.localrc` template (e.g. `localrc.example`) so a new Mac knows what to fill in
