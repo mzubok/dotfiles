@@ -1,8 +1,3 @@
-# Local/private config
-[include]
-
-    path = ~/.gitconfig.local
-
 [alias]
 
     # Staging
@@ -21,7 +16,7 @@
         echo main; \
     }; f"
     branch-diff = !git diff $(git default-branch)...HEAD
-    branch-files = "!git diff $(git default-branch)...HEAD --name-status | sed '/^D/d ; s/^.\\s\\+//'"
+    branch-files = !git diff $(git default-branch)...HEAD --name-only --diff-filter=d
 
     # Commit
     c = commit
@@ -50,6 +45,10 @@
     df = !"git diff-index --quiet HEAD -- || clear; git --no-pager diff --patch-with-stat"
     # `git di $number` shows the diff between the state `$number` revisions ago and the current state
     di = !"d() { git diff --patch-with-stat HEAD~$1; }; git diff-index --quiet HEAD -- || clear; d"
+    # Structural diffs with difftastic (understands syntax, ignores pure reformatting)
+    difft = -c diff.external=difft diff
+    dlog = -c diff.external=difft log -p --ext-diff
+    dshow = -c diff.external=difft show --ext-diff
 
     # Merge
     m = merge
@@ -63,7 +62,7 @@
     # Push
     p = push
     pom = !git push origin $(git default-branch)
-    poh = push origin head
+    poh = push origin HEAD
 
     # Stash
     st = stash
@@ -120,9 +119,12 @@
     # Find commits by commit message
     fm = "!f() { git log --pretty=custom --decorate --date=short --grep=$1; }; f"
 
-    # Remove branches that have already been merged with master
-    # a.k.a. ‘delete merged’
-    dm = "!git branch --merged | grep -v '\\*' | xargs -n 1 git branch -d"
+    # Delete local branches already merged into the current branch (a.k.a. ‘delete merged’).
+    # Never deletes the current branch, branches checked out in worktrees, main, master or the default branch.
+    dm = "!f() { \
+        keep=$(git default-branch); \
+        git branch --merged | grep -v -E \"^[*+] |^  (main|master|$keep)$\" | while read -r b; do git branch -d \"$b\"; done; \
+    }; f"
 
     # List contributors with number of commits
     contributors = shortlog --summary --numbered
@@ -151,10 +153,7 @@
     }; f"
 
     # List remote branches
-    lrb = "!f() { \
-        remote="${1:-origin}"; \
-        git ls-remote --heads "$remote"; \
-    }; f"
+    lrb = "!f() { git ls-remote --heads \"${1:-origin}\"; }; f"
 
 [apply]
 
@@ -217,6 +216,8 @@
 
     # Signed with an SSH key via 1Password (see [gpg] below); key is set in ~/.gitconfig.local
     gpgsign = true
+    # Show the diff in the commit message editor
+    verbose = true
 
 [diff]
 
@@ -225,6 +226,9 @@
     # Enable an experimental heuristic that shifts the hunk boundary in an
     # attempt to make the resulting patch easier to read.
     indentHeuristic = true
+    # Cleaner diffs, and moved lines shown differently from added/removed ones
+    algorithm = histogram
+    colorMoved = default
     tool = Kaleidoscope
 
 [diff "bin"]
@@ -252,13 +256,15 @@
 
 [help]
 
-    # Automatically correct and execute mistyped commands
-    autocorrect = 1
+    # Suggest a correction for mistyped commands and ask before running it
+    autocorrect = prompt
 
 [merge]
 
     # Include summaries of merged commits in newly created merge commit messages
     log = true
+    # Conflict markers also show the original (base) text
+    conflictStyle = zdiff3
     tool = Kaleidoscope
 
 [push]
@@ -269,10 +275,40 @@
     default = simple
     # do not `git push` push relevant annotated tags when pushing branches out.
     followTags = false
+    # First push of a new branch sets its upstream automatically
+    autoSetupRemote = true
 
 [pull]
 
     rebase = true
+
+[rebase]
+
+    # Stash uncommitted changes around a rebase (incl. pull --rebase)
+    autoStash = true
+    # Move stacked branches along when rebasing
+    updateRefs = true
+
+[rerere]
+
+    # Remember conflict resolutions and reuse them
+    enabled = true
+
+[init]
+
+    defaultBranch = main
+
+[branch]
+
+    # `git branch` lists recently used branches first
+    sort = -committerdate
+
+[tag]
+
+    # v1.10 sorts after v1.9
+    sort = version:refname
+    # Sign tags like commits (`git tag <name>` creates a signed, annotated tag)
+    gpgSign = true
 
 [fetch]
 
@@ -283,6 +319,11 @@
     # Insanely beautiful diffs ==> brew install diff-so-fancy
     diff = diff-so-fancy | less --tabs=4 -RFX
     show = diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+
+    # diff-so-fancy formatting for `git add -p` too
+    diffFilter = diff-so-fancy --patch
 
 [pretty]
 
@@ -336,3 +377,9 @@
 
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 	allowedSignersFile = ~/.ssh/allowed_signers
+
+# Local/private config (identity, signing key, per-machine overrides).
+# Must stay last: for single-value settings the last one read wins.
+[include]
+
+    path = ~/.gitconfig.local

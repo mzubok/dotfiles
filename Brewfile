@@ -21,6 +21,8 @@ brew "container"
 # Install GNU core utilities (those that come with macOS are outdated)
 # Don't forget to add `$(brew --prefix coreutils)/libexec/gnubin` to `$PATH`
 brew "coreutils"
+# Structural diff that understands syntax
+brew "difftastic"
 # Good-lookin' diffs with diff-highlight and more
 brew "diff-so-fancy"
 # Load/unload environment variables based on $PWD
@@ -33,6 +35,8 @@ brew "ffmpeg"
 brew "findutils"
 # A general-purpose command-line fuzzy finder
 brew "fzf"
+# GitHub command-line tool
+brew "gh"
 # Distributed revision control system
 brew "git"
 # Small git utilities
@@ -54,6 +58,10 @@ brew "httpie"
 brew "hurl"
 # A lightweight and flexible command-line JSON processor
 brew "jq"
+# Simple terminal UI for git commands
+brew "lazygit"
+# Fast and powerful Git hooks manager for any type of projects
+brew "lefthook"
 # Install some other useful utilities like `sponge`
 brew "moreutils"
 # NCurses Disk Usage
@@ -72,8 +80,6 @@ brew "poppler"
 brew "prettyping"
 # Monitor data's progress through a pipe
 brew "pv"
-# A line-oriented search tool like grep and The Silver Searcher
-brew "ripgrep"
 # Fast Python linter, formatter, and type checker
 brew "ruff"
 # Static analysis and lint tool, for (ba)sh scripts

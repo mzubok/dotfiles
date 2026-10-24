@@ -154,7 +154,7 @@ can still move to chezmoi later.
 ## 5. Safety nets
 
 - [ ] GitHub Action running `shellcheck` on `*.sh` and `functions/*`
-- [ ] `gitleaks` pre-commit hook (already in Brewfile)
+- [x] `gitleaks` pre-commit hook (already in Brewfile): lefthook runs gitleaks + shellcheck
 
 ## Suggested order
 

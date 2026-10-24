@@ -2,7 +2,9 @@
 # Comments start with a `#` and are only valid on their own line.
 # Blank lines are ignored!
 
-theme = Dracula Custom
+# Catppuccin Macchiato to match bat, btop, fzf and Zed.
+# The previous theme is kept in themes/: switch back with `theme = Dracula Custom`
+theme = Catppuccin Macchiato
 
 shell-integration-features = no-cursor,no-sudo,title
 
@@ -17,6 +19,9 @@ window-width = 180
 window-save-state = always
 
 macos-titlebar-style = tabs
+
+# Left Option acts as Alt (for Alt-C, Alt-B/F word jumps); right Option still types special characters
+macos-option-as-alt = left
 
 background-opacity = 0.8
 background-blur-radius = 20

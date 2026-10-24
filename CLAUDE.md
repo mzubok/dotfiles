@@ -30,11 +30,12 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 
 | Directory | Symlink target |
 |-----------|---------------|
-| `ack/`, `git/`, `shell/`, `ripgrep/` | Files go to `~/` as dotfiles (`~/.gitconfig`, `~/.ripgreprc`, ...) |
+| `ack/`, `git/`, `shell/` | Files go to `~/` as dotfiles (`~/.ackrc`, `~/.gitconfig`, ...) |
 | `ssh/config` | `~/.ssh/config`; it includes `~/.ssh/config.d/*` for machine-specific hosts (not tracked) |
 | `ghostty/`, `bat/`, `btop/`, `atuin/` | Dirs go to `~/.config/<name>` |
 | `starship/starship.toml`, `zed/settings.json` | `~/.config/starship.toml`, `~/.config/zed/settings.json` |
 | `functions/` | Executables symlinked to `~/.bin/` (on `PATH`) |
+| `claude/settings.json` | `~/.claude/settings.json` (plugins, marketplaces, model, theme). `settings.local.json` (permission approvals) and `skills/` (managed by installers and claude.ai sync) stay untracked |
 | `shell/aliases.zsh`, `shell/functions.zsh`, `shell/config.zsh` | Symlinked to `~/.bin/` and sourced by `.zshrc` |
 | `zsh/zshrc`, `zsh/zprofile`, `zsh/zsh_plugins.txt` | Symlinked to `~/` |
 
@@ -45,6 +46,21 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 3. `~/.localrc` — machine-specific private config (not tracked, sourced if present).
    Other machine-specific files: `~/.gitconfig.local` (git identity, signing key), `~/.ssh/config.d/*`
 4. `~/.zsh_plugins.txt` (zsh/zsh_plugins.txt) — antidote plugin list
+
+## Shell Environment Gotchas
+
+- **GNU tools come first on PATH** in interactive shells: `.zshrc` prepends Homebrew's `gnu-sed` and `coreutils`
+  `gnubin` dirs on purpose, so `sed`, `ls`, `cp`, `date`, etc. are the GNU versions, and scripts started from the
+  terminal inherit that PATH. Use GNU syntax (e.g. `sed -i 's/a/b/' file`, not BSD's `sed -i '' ...`). Scripts in
+  this repo (`setup.sh`, `bootstrap.sh`, `macos.sh`) should stay portable between GNU and BSD tools.
+- **`rm`, `cp` and `mv` are aliased to `-iv`** and prompt before overwriting/deleting. In non-interactive
+  commands, use `command rm` (or `/bin/rm`) to avoid hanging on a prompt.
+
+## Git Hooks
+
+`lefthook.yml` defines a pre-commit hook: gitleaks on staged changes and shellcheck on `*.sh` and `functions/*`.
+`bootstrap.sh` runs `lefthook install`; on an existing clone run it once by hand. Commits made through an agent
+go through the same hook.
 
 ## Adding New Tool Configuration
 

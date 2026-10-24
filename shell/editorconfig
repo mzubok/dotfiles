@@ -18,3 +18,11 @@ indent_size = 4
 [{*.yaml,*.yml}]
 indent_style = space
 indent_size = 2
+
+# These formats require (or conventionally use) tabs
+[{Makefile,makefile,GNUmakefile,*.mk,*.go,go.mod}]
+indent_style = tab
+
+# Two trailing spaces are a hard line break in Markdown
+[*.{md,markdown}]
+trim_trailing_whitespace = false
