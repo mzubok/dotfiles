@@ -2,9 +2,7 @@
 # .zsh_plugins.txt - antidote plugins file
 #
 
-zsh-users/zsh-completions
-zsh-users/zsh-autosuggestions
-zdharma-continuum/fast-syntax-highlighting
+# zsh-completions comes from Homebrew (see fpath in .zshrc)
 
 #
 # OMZ
@@ -12,3 +10,8 @@ zdharma-continuum/fast-syntax-highlighting
 
 ohmyzsh/ohmyzsh path:plugins/direnv
 ohmyzsh/ohmyzsh path:plugins/extract
+
+zsh-users/zsh-autosuggestions
+
+# Must stay last: it wraps ZLE widgets defined by everything above
+zdharma-continuum/fast-syntax-highlighting

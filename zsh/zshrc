@@ -4,7 +4,7 @@ export PATH="$HOME/.bin:$PATH";
 # Set by `brew shellenv` in .zprofile; fall back for non-login shells
 HOMEBREW_PREFIX="${HOMEBREW_PREFIX:-$(brew --prefix)}"
 
-# Homebrew completions must be in fpath before plugins run compinit
+# Homebrew completions (incl. zsh-completions) must be in fpath before compinit runs below
 fpath=($HOMEBREW_PREFIX/share/zsh-completions $HOMEBREW_PREFIX/share/zsh/site-functions $fpath)
 
 # Change Antidote's home directory
@@ -16,13 +16,19 @@ source $HOMEBREW_PREFIX/share/antidote/antidote.zsh
 # Initialize plugins statically with ${ZDOTDIR:-~}/.zsh_plugins.txt
 antidote load
 
+# Initialize completions once plugins have added their fpath entries
+autoload -Uz compinit && compinit
+
 # Configure atuin
 eval "$(atuin init zsh)"
 
 # Configure starship
 eval "$(starship init zsh)"
 
-# Set up fzf key bindings and fuzzy completion
+# Set up fzf key bindings (Ctrl-T, Alt-C) and ** fuzzy completion; Ctrl-R stays with atuin
+export FZF_CTRL_R_COMMAND=
+# Ctrl-T lists files via ripgrep (respects .gitignore and ~/.ripgreprc, includes dotfiles)
+export FZF_CTRL_T_COMMAND='rg --files --hidden'
 eval "$(fzf --zsh)"
 
 # Set Default Editor

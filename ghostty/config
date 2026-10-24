@@ -18,6 +18,9 @@ window-save-state = always
 
 macos-titlebar-style = tabs
 
+# Left Option acts as Alt (for Alt-C, Alt-B/F word jumps); right Option still types special characters
+macos-option-as-alt = left
+
 background-opacity = 0.8
 background-blur-radius = 20
 
