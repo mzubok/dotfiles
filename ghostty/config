@@ -2,7 +2,9 @@
 # Comments start with a `#` and are only valid on their own line.
 # Blank lines are ignored!
 
-theme = Dracula Custom
+# Catppuccin Macchiato to match bat, btop, fzf and Zed.
+# The previous theme is kept in themes/: switch back with `theme = Dracula Custom`
+theme = Catppuccin Macchiato
 
 shell-integration-features = no-cursor,no-sudo,title
 
