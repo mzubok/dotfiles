@@ -35,7 +35,7 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
 | `ghostty/`, `bat/`, `btop/`, `atuin/` | Dirs go to `~/.config/<name>` |
 | `starship/starship.toml`, `zed/settings.json` | `~/.config/starship.toml`, `~/.config/zed/settings.json` |
 | `functions/` | Executables symlinked to `~/.bin/` (on `PATH`) |
-| `claude/settings.json` | `~/.claude/settings.json` (plugins, marketplaces, model, theme). `settings.local.json` (permission approvals) and `skills/` (managed by installers and claude.ai sync) stay untracked |
+| `claude/settings.json` | `~/.claude/settings.json` (plugins, marketplaces, model, theme). `settings.local.json` (permission approvals) stays untracked |
 | `shell/aliases.zsh`, `shell/functions.zsh`, `shell/config.zsh` | Symlinked to `~/.bin/` and sourced by `.zshrc` |
 | `zsh/zshrc`, `zsh/zprofile`, `zsh/zsh_plugins.txt` | Symlinked to `~/` |
 
@@ -55,6 +55,18 @@ Each top-level directory maps to a tool/app. `setup.sh` handles symlinking:
   this repo (`setup.sh`, `bootstrap.sh`, `macos.sh`) should stay portable between GNU and BSD tools.
 - **`rm`, `cp` and `mv` are aliased to `-iv`** and prompt before overwriting/deleting. In non-interactive
   commands, use `command rm` (or `/bin/rm`) to avoid hanging on a prompt.
+
+## Claude Code Skills
+
+| Kind | Where it lives | How it syncs |
+|------|----------------|--------------|
+| Plugin skills | Plugins listed in `claude/settings.json` | Via the tracked settings; install missing ones with `/plugin` |
+| Account skills | `~/.claude/skills/synced/` | Synced by the claude.ai account; never track |
+| Third-party skills | `~/.agents/skills/` (skills CLI), linked into `~/.claude/skills/` | Listed in `claude/skills.txt`; `./install-skills.sh` installs missing ones (`--update` updates) |
+| Own skills | A personal plugin marketplace (GitHub repo) | Add it to `extraKnownMarketplaces` in `claude/settings.json` |
+
+`setup.sh` also removes broken links into this repo (in `~`, `~/.bin`, `~/.config`),
+e.g. after a file is deleted from the repo.
 
 ## Git Hooks
 

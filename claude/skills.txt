@@ -1,0 +1,7 @@
+# Third-party skills installed with the `skills` CLI (https://github.com/vercel-labs/skills).
+# install-skills.sh installs any that are missing; the CLI keeps them in ~/.agents/skills
+# and links them into ~/.claude/skills.
+#
+# <source>                <skill>
+wheresryan22/anatomy      anatomy
+vercel-labs/skills        find-skills

@@ -39,6 +39,9 @@ echo "Linking dotfiles..."
 echo "Installing git hooks for this repo..."
 (cd "$BASE_DIR" && lefthook install)
 
+echo "Installing third-party skills..."
+"$BASE_DIR/install-skills.sh"
+
 if $APPLY_MACOS; then
     echo "Applying macOS defaults..."
     "$BASE_DIR/macos.sh"
