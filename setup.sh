@@ -80,10 +80,11 @@ link() {
     echo "linked $target"
 }
 
-# Symlinks in ~/.bin that point into this repo but whose source no longer exists
+# Symlinks that point into this repo but whose source no longer exists
+# (e.g. a config file removed from the repo)
 prune_stale() {
     local entry
-    for entry in "$HOME"/.bin/* "$HOME"/.bin/.[!.]*; do
+    for entry in "$HOME"/.[!.]* "$HOME"/.bin/* "$HOME"/.config/*; do
         [ -L "$entry" ] || continue
         case "$(readlink "$entry")" in
             "$BASE_DIR"/*) ;;
