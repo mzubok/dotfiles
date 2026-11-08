@@ -68,6 +68,8 @@ brew "moreutils"
 brew "ncdu"
 # Modern text editor
 brew "neovim"
+# Platform built on V8 to build network applications
+brew "node"
 # Port scanning utility for large networks
 brew "nmap"
 # Create, run, and share large language models (LLMs) locally
@@ -78,6 +80,8 @@ brew "pinentry-mac"
 brew "poppler"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
+# Interpreted, interactive, object-oriented programming language
+brew "python"
 # Monitor data's progress through a pipe
 brew "pv"
 # Fast Python linter, formatter, and type checker
